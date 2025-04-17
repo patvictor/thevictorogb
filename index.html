@@ -2,190 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Victor – Creative Designer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Victor Ogbeide - Designer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
       background-color: #0d0d0d;
-      color: #fff;
+      color: #f5f5f5;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
       padding: 2rem;
-      text-align: center;
-      animation: fadeIn 1.2s ease-in-out;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .profile-pic {
-      width: 130px;
-      height: 130px;
+    .profile-img {
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
+      border: 3px solid #f1c40f;
       object-fit: cover;
-      border: 4px solid #FFD700;
-      box-shadow: 0 0 15px #ffd70070;
-      margin-bottom: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .profile-pic:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #ffd700;
+      margin-bottom: 1rem;
     }
 
     h1 {
-      font-size: 2.5rem;
-      color: #FFD700;
+      color: #f1c40f;
+      font-size: 2rem;
       margin-bottom: 0.5rem;
     }
 
-    p {
-      font-size: 1.2rem;
-      color: #cccccc;
+    h2 {
+      font-weight: 300;
       margin-bottom: 2rem;
+      color: #aaa;
+    }
+
+    .about {
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
     .links {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
       justify-content: center;
-      margin-bottom: 3rem;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
     .link-btn {
-      background-color: transparent;
-      border: 2px solid #FFD700;
-      color: #FFD700;
-      padding: 0.8rem 1.5rem;
-      border-radius: 30px;
+      background-color: #1a1a1a;
+      color: #f1c40f;
+      border: 2px solid #f1c40f;
+      padding: 0.75rem 1.5rem;
       text-decoration: none;
-      font-weight: 600;
+      border-radius: 10px;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .link-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background-color: #FFD700;
-      transition: 0.3s ease-in-out;
-      z-index: 0;
-    }
-
-    .link-btn:hover::before {
-      left: 0;
-    }
-
-    .link-btn span {
-      position: relative;
-      z-index: 1;
     }
 
     .link-btn:hover {
-      color: #111111;
+      background-color: #f1c40f;
+      color: #0d0d0d;
     }
 
-    .section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      color: #FFD700;
-      margin-bottom: 1rem;
-    }
-
-    .section p {
-      font-size: 1.1rem;
-      color: #cccccc;
-      line-height: 1.8;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .link-btn {
-        padding: 0.7rem 1.2rem;
-      }
+    footer {
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- 👑 Profile Picture -->
-  <img src="https://drive.google.com/uc?export=view&id=1X1yH281CfiGKF0O_vA_ynjFdleCasddl" alt="Victor's Profile" class="profile-pic" />
+  <img src="https://drive.google.com/uc?export=view&id=1X1yH281CfiGKF0O_vA_ynjFdleCasddl" alt="Victor's Profile" class="profile-img">
 
-  <!-- 💬 Intro Text -->
-  <h1>Hi, I'm Victor</h1>
-  <p>A Creative Designer crafting visuals with purpose and style</p>
+  <h1>Victor Ogbeide</h1>
+  <h2>Designer Extraordinaire 💻🎨</h2>
 
-  <!-- 🔗 Link Buttons -->
+  <div class="about">
+    <p>
+      Welcome to my corner of the web! I'm Victor, a passionate designer who crafts visual experiences that speak louder than words. From branding to UI/UX and digital storytelling, I bring ideas to life with precision and creativity.
+    </p>
+    <br>
+    <p>
+      Whether it's social media graphics, motion designs, or sleek interface layouts — I'm your go-to guy to make your brand shine with meaning and beauty.
+    </p>
+  </div>
+
   <div class="links">
-    <a href="https://x.com/dvictorogbeide?t=LVvsbkBy6Q5hbxuhSYluQQ&s=09" class="link-btn"><span>Twitter</span></a>
-    <a href="https://www.instagram.com/thevictorogbeide?igsh=b2poNnI0bWk4dHRt" class="link-btn"><span>Instagram</span></a>
-    <a href="https://www.facebook.com/profile.php?id=61574839274988&mibextid=ZbWKwL" class="link-btn"><span>Facebook</span></a>
-    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="link-btn"><span>WhatsApp</span></a>
-    <a href="mailto:thevictorogbeide@gmail.com" class="link-btn"><span>Email Me</span></a>
+    <a href="https://x.com/dvictorogbeide?t=LVvsbkBy6Q5hbxuhSYluQQ&s=09" class="link-btn">Twitter</a>
+    <a href="https://www.instagram.com/thevictorogbeide?igsh=b2poNnI0bWk4dHRt" class="link-btn">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=61574839274988&mibextid=ZbWKwL" class="link-btn">Facebook</a>
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="link-btn">WhatsApp</a>
+    <a href="mailto:thevictorogbeide@gmail.com" class="link-btn">Email Me</a>
   </div>
 
-  <!-- 👋 Welcoming Speech -->
-  <div class="section">
-    <h2>Welcome to My Creative World!</h2>
-    <p>
-      As a passionate designer, I aim to bring ideas to life through creative visuals that communicate meaning and evoke emotions. Whether it's graphic design, branding, or UI/UX, my mission is to create something that truly speaks to my audience. I'm constantly learning, growing, and pushing the limits of what’s possible in design. Let's make something amazing together!
-    </p>
-  </div>
-
-  <!-- 🖌️ About My Expertise -->
-  <div class="section">
-    <h2>My Expertise</h2>
-    <p>
-      I specialize in creating stunning visuals, logos, and branding identities that help businesses and individuals stand out. With experience in graphic design, motion design, and web design, I pride myself on delivering modern, sleek, and user-friendly designs that capture attention. From concept to execution, I work closely with clients to bring their visions to life.
-    </p>
-    <p>
-      Whether you’re launching a brand, need a flyer for an event, or require an animated logo, I’ve got you covered. My design process involves a blend of creativity, strategic thinking, and technical expertise to ensure every project is crafted to perfection.
-    </p>
-  </div>
-
-  <!-- 🌟 Testimonials Section (Optional) -->
-  <div class="section">
-    <h2>What My Clients Say</h2>
-    <p>"Victor helped us bring our brand vision to life with an incredible logo design and brand identity. His attention to detail and creativity is unmatched." – [Client Name]</p>
-    <p>"The team loved the motion graphics Victor created for our ad campaign. He made our product shine in ways we couldn't have imagined." – [Client Name]</p>
-  </div>
+  <footer>
+    &copy; 2025 Victor Ogbeide. All rights reserved.
+  </footer>
 
 </body>
 </html>
