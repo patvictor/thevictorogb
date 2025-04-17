@@ -10,12 +10,46 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
       font-family: 'Poppins', sans-serif;
     }
 
     body {
       background-color: #0d0d0d;
       color: #f5f5f5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .bg-polygons {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .polygon {
+      position: absolute;
+      fill: #FFD70022;
+      animation: float 10s infinite linear;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      to {
+        transform: translateY(-100vh) rotate(360deg);
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -29,18 +63,21 @@
       border: 3px solid #f1c40f;
       object-fit: cover;
       margin-bottom: 1rem;
+      animation: fadeIn 1.5s ease-out;
     }
 
     h1 {
       color: #f1c40f;
       font-size: 2rem;
       margin-bottom: 0.5rem;
+      animation: fadeIn 2s ease-out;
     }
 
     h2 {
       font-weight: 300;
       margin-bottom: 2rem;
       color: #aaa;
+      animation: fadeIn 2.5s ease-out;
     }
 
     .about {
@@ -48,6 +85,7 @@
       text-align: center;
       margin-bottom: 2rem;
       line-height: 1.6;
+      animation: fadeIn 3s ease-out;
     }
 
     .links {
@@ -56,6 +94,7 @@
       justify-content: center;
       gap: 1rem;
       margin-bottom: 2rem;
+      animation: fadeIn 3.5s ease-out;
     }
 
     .link-btn {
@@ -74,40 +113,4 @@
     }
 
     footer {
-      font-size: 0.9rem;
-      color: #888;
-      margin-top: 2rem;
-    }
-  </style>
-</head>
-<body>
-
-  <img src="https://drive.google.com/uc?export=view&id=1X1yH281CfiGKF0O_vA_ynjFdleCasddl" alt="Victor's Profile" class="profile-img">
-
-  <h1>Victor Ogbeide</h1>
-  <h2>Designer Extraordinaire 💻🎨</h2>
-
-  <div class="about">
-    <p>
-      Welcome to my corner of the web! I'm Victor, a passionate designer who crafts visual experiences that speak louder than words. From branding to UI/UX and digital storytelling, I bring ideas to life with precision and creativity.
-    </p>
-    <br>
-    <p>
-      Whether it's social media graphics, motion designs, or sleek interface layouts — I'm your go-to guy to make your brand shine with meaning and beauty.
-    </p>
-  </div>
-
-  <div class="links">
-    <a href="https://x.com/dvictorogbeide?t=LVvsbkBy6Q5hbxuhSYluQQ&s=09" class="link-btn">Twitter</a>
-    <a href="https://www.instagram.com/thevictorogbeide?igsh=b2poNnI0bWk4dHRt" class="link-btn">Instagram</a>
-    <a href="https://www.facebook.com/profile.php?id=61574839274988&mibextid=ZbWKwL" class="link-btn">Facebook</a>
-    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="link-btn">WhatsApp</a>
-    <a href="mailto:thevictorogbeide@gmail.com" class="link-btn">Email Me</a>
-  </div>
-
-  <footer>
-    &copy; 2025 Victor Ogbeide. All rights reserved.
-  </footer>
-
-</body>
-</html>
+      font-size: 0.9
