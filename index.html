@@ -1,170 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Victor Ogbeide | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPRINT - Seja o profissional mais desejado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* RESET & BASE */
+    :root {
+      --primary-color: #FFD700;
+      --bg-dark: #000000;
+      --bg-light: #111111;
+      --text-light: #ffffff;
+      --font-main: 'Montserrat', sans-serif;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #0f0f0f;
-      color: #f9f9f9;
-      overflow-x: hidden;
-      position: relative;
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
     }
 
-    a {
-      color: #FFD700;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    header {
-      padding: 4rem 1rem 2rem;
+    header, section, footer {
+      padding: 3rem 1rem;
       text-align: center;
-      position: relative;
-      z-index: 10;
     }
 
-    header img.profile-img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #FFD700;
-      margin-bottom: 1rem;
+    h1, h2, h3 {
+      font-weight: 700;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    .highlight {
+      color: var(--primary-color);
     }
 
-    header p {
-      font-size: 1.1rem;
-      color: #bbb;
+    .btn {
+      background-color: var(--primary-color);
+      color: #000;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1.5rem;
+      transition: background-color 0.3s ease;
     }
 
-    section {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 10;
+    .btn:hover {
+      background-color: #e6c200;
     }
 
-    .socials {
+    .banner {
+      background: url('https://via.placeholder.com/1600x600/000000/FFD700?text=SPRINT+EVENT') center/cover no-repeat;
+      color: var(--text-light);
+      padding: 6rem 1rem;
+    }
+
+    .pillars {
       display: flex;
       justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
     }
 
-    .socials a {
-      background-color: #1a1a1a;
-      padding: 0.8rem 1.2rem;
-      border-radius: 30px;
-      font-size: 1rem;
+    .pillar {
+      background-color: var(--bg-light);
+      padding: 2rem;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+    }
+
+    .price-box {
+      background-color: var(--bg-light);
+      padding: 3rem;
+      border-radius: 12px;
+      margin: 2rem auto;
+      max-width: 450px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+    }
+
+    .price-box h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .mentor img {
+      border-radius: 50%;
+      width: 120px;
+      margin-bottom: 1.5rem;
     }
 
     footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #999;
-    }
-
-    /* BACKGROUND ANIMATION */
-    .polygons {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .polygon {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background-color: rgba(255, 215, 0, 0.05);
-      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-      animation: float 20s infinite linear;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-      }
-      100% {
-        transform: translateY(-100vh) rotate(360deg);
-      }
+      font-size: 0.875rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <!-- BACKGROUND POLYGONS -->
-  <div class="polygons">
-    <div class="polygon" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="polygon" style="left: 30%; animation-delay: 4s;"></div>
-    <div class="polygon" style="left: 50%; animation-delay: 8s;"></div>
-    <div class="polygon" style="left: 70%; animation-delay: 2s;"></div>
-    <div class="polygon" style="left: 90%; animation-delay: 6s;"></div>
-  </div>
-
-  <!-- HEADER SECTION -->
-  <header>
-    <img src="https://drive.google.com/uc?export=view&id=1X1yH281CfiGKF0O_vA_ynjFdleCasddl" alt="Victor's Profile" class="profile-img" />
-    <h1>Victor Ogbeide</h1>
-    <p>Creative Designer | Visual Storyteller | Branding Expert</p>
+  <header class="banner">
+    <h1><span class="highlight">SPRINT</span></h1>
+    <h2>Seja o profissional <span class="highlight">mais desejado e bem pago do mercado!</span></h2>
+    <p>Desenvolva sua COMUNICAÇÃO, INFLUÊNCIA e LIDERANÇA com aulas e mentorias que potencializam sua carreira profissional.</p>
+    <a href="#" class="btn">Garantir minha vaga!</a>
   </header>
 
-  <!-- WELCOME SECTION -->
-  <section>
-    <h2>Welcome 👋🏾</h2>
-    <p>
-      I’m Victor — a passionate and skilled designer helping brands tell bold visual stories that connect, inspire, and convert. Whether you're looking for flyers, logos, brand identity or engaging motion content, I bring your vision to life with precision and creativity.
-    </p>
-    <br />
-    <h3>What I Do</h3>
-    <ul>
-      <li>🎨 Brand Identity Design</li>
-      <li>📱 Social Media Visuals</li>
-      <li>🎞 Motion Graphics</li>
-      <li>🧠 Creative Strategy & Design Thinking</li>
-    </ul>
+  <section style="background-color: var(--primary-color); color: #000;">
+    <p><strong>Todo nosso conhecimento reunido em um único lugar!</strong></p>
   </section>
 
-  <!-- SOCIALS SECTION -->
   <section>
-    <h2>Let's Connect</h2>
-    <div class="socials">
-      <a href="https://x.com/dvictorogbeide?t=LVvsbkBy6Q5hbxuhSYluQQ&s=09" target="_blank">X (Twitter)</a>
-      <a href="https://www.instagram.com/thevictorogbeide?igsh=b2poNnI0bWk4dHRt" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/profile.php?id=61574839274988&mibextid=ZbWKwL" target="_blank">Facebook</a>
-      <a href="https://wa.me/message/7U4T2N47JMNOL1" target="_blank">WhatsApp</a>
-      <a href="mailto:thevictorogbeide@gmail.com" target="_blank">Email Me</a>
-      <a href="#" target="_blank">Behance (Coming Soon)</a>
+    <h2>O evento <span class="highlight">SPRINT</span> é ideal para:</h2>
+    <p>Quem deseja desenvolver habilidades para se destacar no mercado. Ser um líder mais influente, produtivo e comunicador.</p>
+  </section>
+
+  <section>
+    <h2>Domine os <span class="highlight">3 pilares</span> do profissional do futuro.</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <h3>Comunicação</h3>
+        <p>Tenha clareza, segurança e assertividade para apresentar ideias.</p>
+      </div>
+      <div class="pillar">
+        <h3>Produtividade</h3>
+        <p>Seja altamente eficaz e eficiente com seu tempo.</p>
+      </div>
+      <div class="pillar">
+        <h3>Liderança</h3>
+        <p>Desenvolva sua capacidade de liderar, inspirar e gerar resultados.</p>
+      </div>
     </div>
+    <a href="#" class="btn">Quero fazer parte do Sprint!</a>
   </section>
 
-  <!-- FOOTER -->
+  <section class="price-box">
+    <h2>De: R$697</h2>
+    <p>12x <span class="highlight">R$28,85</span><br>Ou R$297,00 à vista</p>
+    <a href="#" class="btn">Quero aproveitar a promoção!</a>
+  </section>
+
+  <section class="mentor">
+    <img src="https://via.placeholder.com/100" alt="Joel Jota">
+    <h3>@JOELJOTA</h3>
+    <h2>Quem vai ser o meu mentor?</h2>
+    <p>Conheça um dos maiores nomes em performance do Brasil. Joel vai te ajudar a desenvolver as habilidades mais exigidas no mercado com muita prática e estratégia.</p>
+    <a href="#" class="btn">Garantir minha vaga!</a>
+  </section>
+
   <footer>
-    &copy; 2025 Victor Ogbeide. All rights reserved.
+    <p>© 2025 SPRINT | Todos os direitos reservados</p>
   </footer>
+
+  <script>
+    // Basic scroll reveal animation
+    const revealElements = document.querySelectorAll(".pillar, .price-box, .mentor");
+    const options = {
+      threshold: 0.1
+    };
+
+    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.transform = "translateY(0)";
+          entry.target.style.opacity = "1";
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    revealElements.forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = "translateY(50px)";
+      el.style.transition = "all 0.6s ease-out";
+      revealOnScroll.observe(el);
+    });
+  </script>
 </body>
 </html>
