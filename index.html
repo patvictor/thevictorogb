@@ -1,188 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SPRINT - Seja o profissional mais desejado</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-color: #FFD700;
-      --bg-dark: #000000;
-      --bg-light: #111111;
-      --text-light: #ffffff;
-      --font-main: 'Montserrat', sans-serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font-main);
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    header, section, footer {
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-
-    h1, h2, h3 {
-      font-weight: 700;
-    }
-
-    .highlight {
-      color: var(--primary-color);
-    }
-
-    .btn {
-      background-color: var(--primary-color);
-      color: #000;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 1.5rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #e6c200;
-    }
-
-    .banner {
-      background: url('https://via.placeholder.com/1600x600/000000/FFD700?text=SPRINT+EVENT') center/cover no-repeat;
-      color: var(--text-light);
-      padding: 6rem 1rem;
-    }
-
-    .pillars {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .pillar {
-      background-color: var(--bg-light);
-      padding: 2rem;
-      border-radius: 12px;
-      width: 280px;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
-    }
-
-    .price-box {
-      background-color: var(--bg-light);
-      padding: 3rem;
-      border-radius: 12px;
-      margin: 2rem auto;
-      max-width: 450px;
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
-    }
-
-    .price-box h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--primary-color);
-    }
-
-    .mentor img {
-      border-radius: 50%;
-      width: 120px;
-      margin-bottom: 1.5rem;
-    }
-
-    footer {
-      font-size: 0.875rem;
-      color: #777;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victor Ogbeide Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="banner">
-    <h1><span class="highlight">SPRINT</span></h1>
-    <h2>Seja o profissional <span class="highlight">mais desejado e bem pago do mercado!</span></h2>
-    <p>Desenvolva sua COMUNICAÇÃO, INFLUÊNCIA e LIDERANÇA com aulas e mentorias que potencializam sua carreira profissional.</p>
-    <a href="#" class="btn">Garantir minha vaga!</a>
-  </header>
-
-  <section style="background-color: var(--primary-color); color: #000;">
-    <p><strong>Todo nosso conhecimento reunido em um único lugar!</strong></p>
-  </section>
-
-  <section>
-    <h2>O evento <span class="highlight">SPRINT</span> é ideal para:</h2>
-    <p>Quem deseja desenvolver habilidades para se destacar no mercado. Ser um líder mais influente, produtivo e comunicador.</p>
-  </section>
-
-  <section>
-    <h2>Domine os <span class="highlight">3 pilares</span> do profissional do futuro.</h2>
-    <div class="pillars">
-      <div class="pillar">
-        <h3>Comunicação</h3>
-        <p>Tenha clareza, segurança e assertividade para apresentar ideias.</p>
-      </div>
-      <div class="pillar">
-        <h3>Produtividade</h3>
-        <p>Seja altamente eficaz e eficiente com seu tempo.</p>
-      </div>
-      <div class="pillar">
-        <h3>Liderança</h3>
-        <p>Desenvolva sua capacidade de liderar, inspirar e gerar resultados.</p>
-      </div>
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Hi, I'm <span>Victor Ogbeide</span></h1>
+      <p>A passionate freelance graphic designer with strong skills in Adobe Photoshop & Illustrator.</p>
     </div>
-    <a href="#" class="btn">Quero fazer parte do Sprint!</a>
+    <div class="hero-image zoom-in">
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg" alt="Victor Ogbeide" />
+    </div>
+  </div>
+
+  <section class="about">
+    <p>
+      I specialize in creating professional and timely designs, especially when there’s a reliable and efficient reward structure in place.<br />
+      I’m eager to explore how I can contribute to enhancing the quality and delivery speed of your brand.<br />
+      That said, based on my professional experience, I always ensure that an upfront payment is confirmed before commencing any project.
+    </p>
+    <p><strong>Best regards,<br />Victor Ogbeide</strong></p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/message/7U4T2N47JMNOL1" class="btn">Hire Me</a>
+      <a href="#portfolio" class="btn">View Portfolio</a>
+    </div>
   </section>
 
-  <section class="price-box">
-    <h2>De: R$697</h2>
-    <p>12x <span class="highlight">R$28,85</span><br>Ou R$297,00 à vista</p>
-    <a href="#" class="btn">Quero aproveitar a promoção!</a>
-  </section>
-
-  <section class="mentor">
-    <img src="https://via.placeholder.com/100" alt="Joel Jota">
-    <h3>@JOELJOTA</h3>
-    <h2>Quem vai ser o meu mentor?</h2>
-    <p>Conheça um dos maiores nomes em performance do Brasil. Joel vai te ajudar a desenvolver as habilidades mais exigidas no mercado com muita prática e estratégia.</p>
-    <a href="#" class="btn">Garantir minha vaga!</a>
+  <section id="portfolio" class="portfolio">
+    <h2>My Works</h2>
+    <div class="gallery">
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 1" />
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 2" />
+      <div class="placeholder">Coming Soon</div>
+      <div class="placeholder">Coming Soon</div>
+      <div class="placeholder">Coming Soon</div>
+      <div class="placeholder">Coming Soon</div>
+      <div class="placeholder">Coming Soon</div>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 SPRINT | Todos os direitos reservados</p>
+    <h3>Connect with me</h3>
+    <div class="social-links">
+      <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09" target="_blank">X (Twitter)</a>
+      <a href="https://www.instagram.com/p/DGQblj7oChV/?igsh=eGZwam0wN2JwZ2h2" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL" target="_blank">Facebook</a>
+    </div>
   </footer>
 
-  <script>
-    // Basic scroll reveal animation
-    const revealElements = document.querySelectorAll(".pillar, .price-box, .mentor");
-    const options = {
-      threshold: 0.1
-    };
-
-    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.transform = "translateY(0)";
-          entry.target.style.opacity = "1";
-          observer.unobserve(entry.target);
-        }
-      });
-    }, options);
-
-    revealElements.forEach(el => {
-      el.style.opacity = 0;
-      el.style.transform = "translateY(50px)";
-      el.style.transition = "all 0.6s ease-out";
-      revealOnScroll.observe(el);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
