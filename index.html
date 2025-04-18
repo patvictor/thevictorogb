@@ -28,14 +28,15 @@
       margin-bottom: 10px;
     }
     h1 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 700;
     }
 
     .tagline {
+      font-size: 0.75rem;
+      margin-bottom: 10px;
       color: #FFD700;
-      margin-bottom: 20px;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     .profile-wrapper {
@@ -44,45 +45,14 @@
       margin-bottom: 20px;
     }
 
-    .star-shape {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(0deg);
-      width: 240px;
-      height: 240px;
-      background: conic-gradient(#FFD700, #ff9900);
-      clip-path: polygon(
-        50% 0%,
-        61% 35%,
-        98% 35%,
-        68% 57%,
-        79% 91%,
-        50% 70%,
-        21% 91%,
-        32% 57%,
-        2% 35%,
-        39% 35%
-      );
-      animation: spin 10s linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes spin {
-      100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-      }
-    }
-
-    .profile-box {
-      position: relative;
-      display: inline-block;
-      width: 200px;
-      height: 200px;
+    .color-palette-shape {
+      width: 230px;
+      height: 150px;
+      background: #FFD700;
+      border-radius: 60% 40% 40% 60% / 40% 60% 60% 40%;
       padding: 10px;
-      background-color: #FFD700;
-      border-radius: 8px;
       overflow: hidden;
+      position: relative;
       z-index: 1;
     }
 
@@ -90,8 +60,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top;
-      border-radius: 8px;
+      border-radius: inherit;
     }
 
     .about {
@@ -198,22 +167,15 @@
 
   <!-- Header -->
   <div class="header-box">
-    <h1>Welcome to my space</h1>
+    <h1>A professional Graphic Designer with years of experience.</h1>
   </div>
   <div class="tagline">Skillful. Light. Influence</div>
 
   <!-- Profile -->
   <div class="profile-wrapper">
-    <div class="star-shape"></div>
-    <div class="profile-box">
+    <div class="color-palette-shape">
       <img class="profile-img" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/Photoroom-20250418_091406.png" alt="Victor Ogbeide Profile Picture" />
     </div>
-  </div>
-
-  <!-- CTA Buttons -->
-  <div class="cta-container">
-    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="cta hire">Hire Me</a>
-    <a href="https://pin.it/iiK3onxdD" class="cta portfolio">My Portfolio</a>
   </div>
 
   <!-- About Section -->
@@ -239,14 +201,20 @@
     </p>
   </div>
 
-  <!-- Mini Buttons -->
+  <!-- CTA Buttons -->
+  <div class="cta-container">
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="cta hire">Hire Me</a>
+    <a href="https://pin.it/iiK3onxdD" class="cta portfolio">My Portfolio</a>
+  </div>
+
+  <!-- Mini Buttons (Courses and Mentorship) -->
   <div class="mini-buttons">
     <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-photoshop">Get My Photoshop Design Course</a>
     <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-smartphone">Get My Smartphone Design Course</a>
     <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-mentorship">Get My Mentorship Plan</a>
   </div>
 
-  <!-- Footer -->
+  <!-- Footer / Socials -->
   <footer>
     <div class="socials">
       <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL">Facebook</a>
