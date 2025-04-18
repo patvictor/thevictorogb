@@ -18,19 +18,32 @@
       text-align: center;
       padding: 50px 20px;
     }
+
+    .header-box {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid;
+      border-image: linear-gradient(to right, #FFD700, #FF5733) 1;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
     h1 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 20px;
     }
-    .highlight {
+
+    .tagline {
       color: #FFD700;
+      margin-bottom: 20px;
+      font-weight: 500;
     }
+
     .profile-wrapper {
       position: relative;
       display: inline-block;
       margin-bottom: 20px;
     }
+
     .star-shape {
       position: absolute;
       top: 50%;
@@ -54,37 +67,47 @@
       animation: spin 10s linear infinite;
       z-index: 0;
     }
+
     @keyframes spin {
       100% {
         transform: translate(-50%, -50%) rotate(360deg);
       }
     }
+
     .profile-box {
       position: relative;
       display: inline-block;
+      width: 200px;
+      height: 200px;
       padding: 10px;
       background-color: #FFD700;
       border-radius: 8px;
+      overflow: hidden;
       z-index: 1;
     }
+
     .profile-img {
-      width: 200px;
-      height: 200px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
+      object-position: top;
       border-radius: 8px;
     }
+
     .about {
       max-width: 800px;
       margin: 20px auto;
       font-size: 0.95rem;
       line-height: 1.6;
     }
+
     .about h3 {
       color: #ffff99;
       margin-top: 30px;
       border-top: 1px solid #333;
       padding-top: 15px;
     }
+
     .cta-container {
       display: flex;
       justify-content: center;
@@ -92,6 +115,7 @@
       margin-top: 30px;
       flex-wrap: wrap;
     }
+
     .cta {
       text-decoration: none;
       padding: 12px 30px;
@@ -99,19 +123,23 @@
       font-weight: 600;
       transition: background-color 0.4s ease, color 0.4s ease;
     }
+
     .cta.hire {
       background-color: #FFD700;
       color: #000;
     }
+
     .cta.hire:hover {
       background-color: #fff;
       color: #000;
     }
+
     .cta.portfolio {
       background: linear-gradient(to right, #ccc, #eee);
       color: #000;
       border: 2px solid #FFD700;
     }
+
     .cta.portfolio:hover {
       background-color: #FFD700;
       color: #000;
@@ -124,6 +152,7 @@
       margin-top: 25px;
       flex-wrap: wrap;
     }
+
     .mini-btn {
       text-decoration: none;
       padding: 8px 16px;
@@ -132,17 +161,21 @@
       font-weight: 500;
       transition: transform 0.3s ease;
     }
+
     .mini-btn:hover {
       transform: scale(1.05);
     }
+
     .btn-photoshop {
       background-color: #31A8FF;
       color: #fff;
     }
+
     .btn-smartphone {
       background: linear-gradient(to right, red, yellow);
       color: #000;
     }
+
     .btn-mentorship {
       background: linear-gradient(to right, #ccc, #eee);
       color: #000;
@@ -153,6 +186,7 @@
       font-size: 0.9rem;
       color: #888;
     }
+
     .socials a {
       color: #FFD700;
       margin: 0 10px;
@@ -161,9 +195,14 @@
   </style>
 </head>
 <body>
-  <h1><span class="highlight">Welcome to my space</span></h1>
 
-  <!-- Profile Picture with Star -->
+  <!-- Header -->
+  <div class="header-box">
+    <h1>Welcome to my space</h1>
+  </div>
+  <div class="tagline">Skillful. Light. Influence</div>
+
+  <!-- Profile -->
   <div class="profile-wrapper">
     <div class="star-shape"></div>
     <div class="profile-box">
@@ -171,11 +210,11 @@
     </div>
   </div>
 
-  <!-- About Sections -->
+  <!-- About Section -->
   <div class="about">
     <h3>About Me</h3>
     <p>
-      My name is <span class="highlight">Victor Ogbeide</span>, and I'm a passionate graphic and motion designer dedicated to bringing visual ideas to life.
+      My name is <span class="highlight">Victor Ogbeide</span>, and I'm a passionate graphic designer dedicated to bringing visual ideas to life.
     </p>
 
     <h3>Experience</h3>
@@ -202,9 +241,9 @@
 
   <!-- Mini Buttons -->
   <div class="mini-buttons">
-    <a href="#" class="mini-btn btn-photoshop">Get My Photoshop Design Course</a>
-    <a href="#" class="mini-btn btn-smartphone">Get My Smartphone Design Course</a>
-    <a href="#" class="mini-btn btn-mentorship">Get My Mentorship Plan</a>
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-photoshop">Get My Photoshop Design Course</a>
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-smartphone">Get My Smartphone Design Course</a>
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-mentorship">Get My Mentorship Plan</a>
   </div>
 
   <!-- Footer -->
@@ -216,5 +255,6 @@
     </div>
     <p>&copy; 2025 Victor Ogbeide. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
