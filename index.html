@@ -1,173 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Victor Ogbeide - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victor Ogbeide | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #0b0c10;
+      --text-color: #ffffff;
+      --accent-color: #f1c40f;
+      --font-main: 'Outfit', sans-serif;
+      --font-display: 'Orbitron', sans-serif;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #0f0f0f;
-      color: #f5f5f5;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-main);
       overflow-x: hidden;
     }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+
+    header {
+      padding: 2rem;
       text-align: center;
-      padding: 4rem 2rem;
-      background: rgba(255, 255, 0, 0.05);
+      background: #111;
     }
-    .hero img {
-      width: 200px;
-      border-radius: 50%;
-      margin-bottom: 1.5rem;
-      transition: transform 0.6s ease;
-    }
-    .hero img.zoom {
-      transform: scale(1.2);
-    }
-    .hero h1 {
+
+    header h1 {
+      font-family: var(--font-display);
       font-size: 2.5rem;
-      color: yellow;
-      margin-bottom: 1rem;
+      color: var(--accent-color);
     }
-    .hero p {
-      max-width: 800px;
-      line-height: 1.8;
-      font-size: 1rem;
-      color: #ddd;
-    }
-    .links {
-      margin: 2rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .links a {
-      background: yellow;
-      color: #0f0f0f;
-      padding: 0.8rem 1.2rem;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    .links a:hover {
-      background: #f5f5f5;
-      color: #000;
-    }
-    .portfolio {
-      padding: 4rem 2rem;
-      background: rgba(255, 255, 255, 0.03);
-    }
-    .portfolio h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2rem;
-      color: yellow;
-    }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 1rem;
+
+    .profile-pic-container {
+      position: relative;
+      margin: 2rem auto;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
       overflow: hidden;
+      transition: transform 0.5s ease;
     }
-    .portfolio-item {
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      overflow: hidden;
-      transform: translateX(100%);
-      opacity: 0.5;
-      transition: all 1s ease;
-    }
-    .portfolio-item.active {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    .portfolio-item img {
+
+    .profile-pic-container img {
       width: 100%;
       height: auto;
-      display: block;
     }
-    @media (max-width: 900px) {
-      .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+
+    .contact-links {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    section {
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+
+    .portfolio-row {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+    }
+
+    .portfolio-row img {
+      height: 240px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-row img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Floating Shapes */
+    .floating-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .shape {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: var(--accent-color);
+      opacity: 0.3;
+      animation: floatShape 20s linear infinite;
+      border-radius: 50%;
+    }
+
+    @keyframes floatShape {
+      0% {
+        transform: translateY(100vh) scale(1);
+      }
+      100% {
+        transform: translateY(-10vh) scale(0.5);
+      }
+    }
+
+    @media (min-width: 768px) {
+      header h1 {
+        font-size: 3.5rem;
+      }
+      .portfolio-row img {
+        height: 320px;
       }
     }
   </style>
 </head>
 <body>
-
-  <section class="hero">
-    <img id="profile-pic" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg" alt="Victor Ogbeide">
+  <header>
+    <div class="profile-pic-container" id="profile-pic">
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/Photoroom-20250418_091406.png" alt="Victor Ogbeide Profile Picture" />
+    </div>
     <h1>Victor Ogbeide</h1>
-    <p>
-      I’m a freelance graphic designer with strong proficiency in <strong>Adobe Photoshop and Illustrator</strong>.
-      I specialize in creating professional and timely designs, especially when there’s a reliable and efficient reward structure in place.
-      I’m eager to explore how I can contribute to enhancing the quality and delivery speed of your brand. That said, based on my professional experience,
-      I always ensure that an upfront payment is confirmed before commencing any project.
-    </p>
-    <div class="links">
-      <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09" target="_blank">X</a>
-      <a href="https://www.instagram.com/p/DGQblj7oChV/?igsh=eGZwam0wN2JwZ2h2" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL" target="_blank">Facebook</a>
-      <a href="https://wa.me/message/7U4T2N47JMNOL1" target="_blank">Hire Me</a>
+    <div class="contact-links">
+      <a href="https://facebook.com/Victordesigns.stu">Facebook</a>
+      <a href="https://x.com/dvictorogbeide">X (Twitter)</a>
+      <a href="https://wa.me/message/7U4T2N47JMNOL1">WhatsApp</a>
+      <a href="mailto:thevictorogbeide@gmail.com">Email</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Church Designs</h2>
+    <div class="portfolio-row">
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" />
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" />
     </div>
   </section>
 
-  <section class="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio-grid" id="portfolio-grid">
-      <!-- 10 duplicated items -->
-      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 1"></div>
-      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 2"></div>
-      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 3"></div>
-      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 4"></div>
-      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 5"></div>
-      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 6"></div>
-      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 7"></div>
-      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 8"></div>
-      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 9"></div>
-      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 10"></div>
+  <section>
+    <h2>Event Branding</h2>
+    <div class="portfolio-row">
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" />
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" />
     </div>
   </section>
+
+  <section>
+    <h2>Logos & Social Media</h2>
+    <div class="portfolio-row">
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" />
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" />
+    </div>
+  </section>
+
+  <div class="floating-shapes" id="shapes"></div>
 
   <script>
-    const profilePic = document.getElementById('profile-pic');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-
+    const profile = document.getElementById('profile-pic');
     window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-
-      // Profile zoom effect
-      const heroTop = profilePic.getBoundingClientRect().top;
-      if (heroTop < window.innerHeight / 2 && heroTop > 0) {
-        profilePic.classList.add('zoom');
-      } else {
-        profilePic.classList.remove('zoom');
-      }
-
-      // Portfolio slide in effect
-      portfolioItems.forEach((item) => {
-        const itemTop = item.getBoundingClientRect().top;
-        if (itemTop < window.innerHeight) {
-          item.classList.add('active');
-        }
-      });
+      let offset = window.scrollY;
+      profile.style.transform = `translateY(${offset * 0.2}px)`;
     });
-  </script>
 
+    // Generate floating shapes
+    const shapes = document.getElementById('shapes');
+    for (let i = 0; i < 20; i++) {
+      const shape = document.createElement('div');
+      shape.classList.add('shape');
+      shape.style.left = Math.random() * 100 + 'vw';
+      shape.style.animationDuration = 10 + Math.random() * 30 + 's';
+      shape.style.top = Math.random() * 100 + 'vh';
+      shapes.appendChild(shape);
+    }
+  </script>
 </body>
 </html>
