@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victor Ogbeide | Creative Designer</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -19,74 +19,72 @@
       padding: 50px 20px;
     }
     h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     .highlight {
       color: #FFD700;
     }
-
-    /* Hexagon animation wrapper */
     .profile-wrapper {
       position: relative;
       display: inline-block;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
-
-    .hexagon-back {
+    .star-shape {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 260px;
-      height: 150px;
-      background: conic-gradient(#FFD700, #FF9900);
-      clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
       transform: translate(-50%, -50%) rotate(0deg);
-      animation: rotateHex 10s linear infinite;
-      z-index: -1;
+      width: 240px;
+      height: 240px;
+      background: conic-gradient(#FFD700, #ff9900);
+      clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+      );
+      animation: spin 10s linear infinite;
+      z-index: 0;
     }
-
-    @keyframes rotateHex {
-      from {
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
-      to {
+    @keyframes spin {
+      100% {
         transform: translate(-50%, -50%) rotate(360deg);
       }
     }
-
     .profile-box {
-      background-color: #FFD700;
-      padding: 10px;
-      border-radius: 10px;
+      position: relative;
       display: inline-block;
-      overflow: hidden;
+      padding: 10px;
+      background-color: #FFD700;
+      border-radius: 8px;
+      z-index: 1;
     }
-
     .profile-img {
       width: 200px;
       height: 200px;
       object-fit: cover;
       border-radius: 8px;
     }
-
     .about {
       max-width: 800px;
-      margin: 30px auto;
-      font-size: 1rem;
-      line-height: 1.8;
-      border-top: 1px solid #444;
-      border-bottom: 1px solid #444;
-      padding: 30px 10px;
+      margin: 20px auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
-
-    .about p {
-      margin-bottom: 25px;
-      border-bottom: 1px solid #333;
-      padding-bottom: 15px;
+    .about h3 {
+      color: #ffff99;
+      margin-top: 30px;
+      border-top: 1px solid #333;
+      padding-top: 15px;
     }
-
     .cta-container {
       display: flex;
       justify-content: center;
@@ -94,34 +92,59 @@
       margin-top: 30px;
       flex-wrap: wrap;
     }
-
     .cta {
       text-decoration: none;
       padding: 12px 30px;
       border-radius: 8px;
       font-weight: 600;
-      transition: all 0.4s ease;
+      transition: background-color 0.4s ease, color 0.4s ease;
     }
-
     .cta.hire {
       background-color: #FFD700;
       color: #000;
     }
-
     .cta.hire:hover {
       background-color: #fff;
       color: #000;
     }
-
     .cta.portfolio {
-      border: 2px solid transparent;
-      background: linear-gradient(#0f0f0f, #0f0f0f) padding-box,
-                  linear-gradient(135deg, #FFD700, #CCCCCC) border-box;
-      color: #FFD700;
+      background: linear-gradient(to right, #ccc, #eee);
+      color: #000;
+      border: 2px solid #FFD700;
+    }
+    .cta.portfolio:hover {
+      background-color: #FFD700;
+      color: #000;
     }
 
-    .cta.portfolio:hover {
-      background: linear-gradient(135deg, #d4d4d4, #ffffff);
+    .mini-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+    .mini-btn {
+      text-decoration: none;
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: transform 0.3s ease;
+    }
+    .mini-btn:hover {
+      transform: scale(1.05);
+    }
+    .btn-photoshop {
+      background-color: #31A8FF;
+      color: #fff;
+    }
+    .btn-smartphone {
+      background: linear-gradient(to right, red, yellow);
+      color: #000;
+    }
+    .btn-mentorship {
+      background: linear-gradient(to right, #ccc, #eee);
       color: #000;
     }
 
@@ -130,7 +153,6 @@
       font-size: 0.9rem;
       color: #888;
     }
-
     .socials a {
       color: #FFD700;
       margin: 0 10px;
@@ -139,35 +161,53 @@
   </style>
 </head>
 <body>
+  <h1><span class="highlight">Welcome to my space</span></h1>
 
-  <h1>Welcome to my space, <span class="highlight">I’m Victor Ogbeide</span></h1>
-
-  <!-- Profile Picture + Hexagon Background -->
+  <!-- Profile Picture with Star -->
   <div class="profile-wrapper">
-    <div class="hexagon-back"></div>
+    <div class="star-shape"></div>
     <div class="profile-box">
       <img class="profile-img" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/Photoroom-20250418_091406.png" alt="Victor Ogbeide Profile Picture" />
     </div>
   </div>
 
-  <!-- About Me Section -->
+  <!-- About Sections -->
   <div class="about">
-    <p><strong>Who I Am:</strong><br> I'm a passionate graphic and motion designer with a love for clean, intentional design that tells compelling stories.</p>
+    <h3>About Me</h3>
+    <p>
+      My name is <span class="highlight">Victor Ogbeide</span>, and I'm a passionate graphic and motion designer dedicated to bringing visual ideas to life.
+    </p>
 
-    <p><strong>What I Do:</strong><br> From brand identities to motion graphics and social media visuals, I craft visuals that not only look good but communicate your message effectively.</p>
+    <h3>Experience</h3>
+    <p>
+      I specialize in creating high-impact designs that connect deeply with your brand's message and audience. I’ve worked with local and international clients across various industries.
+    </p>
 
-    <p><strong>My Experience:</strong><br> I’ve worked with both local and international clients across different industries, delivering high-impact solutions that make brands stand out.</p>
+    <h3>Philosophy</h3>
+    <p>
+      My design philosophy centers around clarity, intentionality, and storytelling—whether it’s a brand identity, social media visuals, or event branding.
+    </p>
 
-    <p><strong>My Philosophy:</strong><br> Every pixel counts. I believe in design that’s rooted in clarity, energy, and storytelling.</p>
+    <h3>My Approach</h3>
+    <p>
+      Every detail counts, and I bring energy and creativity into every pixel.
+    </p>
   </div>
 
-  <!-- Call-to-Action Links -->
+  <!-- CTA Buttons -->
   <div class="cta-container">
     <a href="https://wa.me/message/7U4T2N47JMNOL1" class="cta hire">Hire Me</a>
     <a href="https://pin.it/iiK3onxdD" class="cta portfolio">My Portfolio</a>
   </div>
 
-  <!-- Footer Section -->
+  <!-- Mini Buttons -->
+  <div class="mini-buttons">
+    <a href="#" class="mini-btn btn-photoshop">Get My Photoshop Design Course</a>
+    <a href="#" class="mini-btn btn-smartphone">Get My Smartphone Design Course</a>
+    <a href="#" class="mini-btn btn-mentorship">Get My Mentorship Plan</a>
+  </div>
+
+  <!-- Footer -->
   <footer>
     <div class="socials">
       <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL">Facebook</a>
