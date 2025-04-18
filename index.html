@@ -3,55 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Victor Ogbeide Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Victor Ogbeide | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #f8f8f8;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      position: relative;
+      background: radial-gradient(circle at center, #111 0%, #0d0d0d 100%);
+    }
+
+    header img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #ffcc00;
+      animation: zoomIn 3s ease-in-out;
+    }
+
+    @keyframes zoomIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    header h1 {
+      margin-top: 1rem;
+      color: #ffcc00;
+      font-size: 2.5rem;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #f0f0f0;
+    }
+
+    .portfolio-section {
+      padding: 4rem 2rem;
+      background: #111;
+    }
+
+    .portfolio-section h2 {
+      text-align: center;
+      color: #ffcc00;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .portfolio-grid img {
+      width: 100%;
+      border-radius: 1.5rem;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .links-section {
+      text-align: center;
+      margin: 4rem auto;
+    }
+
+    .links-section h3 {
+      color: #ffcc00;
+      margin-bottom: 1rem;
+    }
+
+    .links-section a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #ffcc00;
+      color: #111;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .links-section a:hover {
+      background-color: #ffd633;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #ccc;
+      background: #0d0d0d;
+    }
+  </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="hero-text">
-      <h1>Hi, I'm <span>Victor Ogbeide</span></h1>
-      <p>A passionate freelance graphic designer with strong skills in Adobe Photoshop & Illustrator.</p>
-    </div>
-    <div class="hero-image zoom-in">
-      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg" alt="Victor Ogbeide" />
-    </div>
-  </div>
-
-  <section class="about">
-    <p>
-      I specialize in creating professional and timely designs, especially when there’s a reliable and efficient reward structure in place.<br />
-      I’m eager to explore how I can contribute to enhancing the quality and delivery speed of your brand.<br />
+  <header>
+    <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg" alt="Victor Ogbeide" />
+    <h1>Victor Ogbeide</h1>
+    <p class="intro">
+      A freelance graphic designer with strong proficiency in <strong>Adobe Photoshop and Illustrator</strong>.
+      I specialize in creating professional and timely designs, especially when there’s a reliable and efficient reward structure in place.<br><br>
+      I’m eager to explore how I can contribute to enhancing the quality and delivery speed of your brand.
       That said, based on my professional experience, I always ensure that an upfront payment is confirmed before commencing any project.
     </p>
-    <p><strong>Best regards,<br />Victor Ogbeide</strong></p>
-    <div class="cta-buttons">
-      <a href="https://wa.me/message/7U4T2N47JMNOL1" class="btn">Hire Me</a>
-      <a href="#portfolio" class="btn">View Portfolio</a>
+  </header>
+
+  <section class="portfolio-section">
+    <h2>Featured Works</h2>
+    <div class="portfolio-grid">
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 1" />
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 2" />
+      <!-- Add 5 more images here when available -->
     </div>
   </section>
 
-  <section id="portfolio" class="portfolio">
-    <h2>My Works</h2>
-    <div class="gallery">
-      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 1" />
-      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 2" />
-      <div class="placeholder">Coming Soon</div>
-      <div class="placeholder">Coming Soon</div>
-      <div class="placeholder">Coming Soon</div>
-      <div class="placeholder">Coming Soon</div>
-      <div class="placeholder">Coming Soon</div>
-    </div>
+  <section class="links-section">
+    <h3>Let's Work Together</h3>
+    <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09" target="_blank">Twitter</a>
+    <a href="https://www.instagram.com/p/DGQblj7oChV/?igsh=eGZwam0wN2JwZ2h2" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL" target="_blank">Facebook</a>
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" target="_blank">Hire Me</a>
   </section>
 
   <footer>
-    <h3>Connect with me</h3>
-    <div class="social-links">
-      <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09" target="_blank">X (Twitter)</a>
-      <a href="https://www.instagram.com/p/DGQblj7oChV/?igsh=eGZwam0wN2JwZ2h2" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL" target="_blank">Facebook</a>
-    </div>
+    &copy; 2025 Victor Ogbeide. All rights reserved.
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
