@@ -1,165 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Victor Ogbeide - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-    body {
-      background: #0f0f0f;
-      color: #f5f5f5;
-      overflow-x: hidden;
-    }
+const images = [
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg",
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg",
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg",
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg",
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg"
+];
 
-    .background-shapes {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-      overflow: hidden;
-    }
+const Portfolio = () => {
+  return (
+    <div className="p-4 bg-gradient-to-b from-black to-gray-900 min-h-screen text-white">
+      <div className="text-center mb-10">
+        <img
+          src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg"
+          alt="Victor Ogbeide"
+          className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg border-4 border-white/30"
+        />
+        <h1 className="text-4xl font-bold mb-2">Victor Ogbeide</h1>
+        <p className="text-lg max-w-xl mx-auto leading-relaxed">
+          I'm a professional freelance graphic designer skilled in Adobe Photoshop and Illustrator. I specialize in creating professional and timely designs that meet your business needs. Whether it's a flyer, logo, or full brand design, I deliver with quality. I only start a project after upfront payment is confirmed, ensuring commitment and focus on every design.
+        </p>
+        <div className="flex justify-center gap-4 mt-4">
+          <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09" target="_blank" rel="noopener noreferrer">
+            <Button>Twitter</Button>
+          </a>
+          <a href="https://www.instagram.com/p/DGQblj7oChV/?igsh=eGZwam0wN2JwZ2h2" target="_blank" rel="noopener noreferrer">
+            <Button>Instagram</Button>
+          </a>
+          <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+            <Button>Facebook</Button>
+          </a>
+          <a href="https://wa.me/message/7U4T" target="_blank" rel="noopener noreferrer">
+            <Button variant="secondary">Hire Me</Button>
+          </a>
+        </div>
+      </div>
 
-    .shape {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.1;
-      background: #ffc107;
-      animation: moveShapes 40s infinite linear;
-    }
+      <div className="overflow-x-hidden relative">
+        <div className="grid grid-cols-5 gap-4 animate-slide-left w-[200%]">
+          {images.map((src, idx) => (
+            <Card
+              key={idx}
+              className="bg-white/10 backdrop-blur-md border border-white/20 shadow-lg hover:scale-105 transition-transform duration-300"
+            >
+              <CardContent className="p-0">
+                <img
+                  src={src}
+                  alt={`Design ${idx + 1}`}
+                  className="w-full h-40 object-cover rounded-t-xl"
+                />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
 
-    @keyframes moveShapes {
-      0% { transform: translateY(0) translateX(0); }
-      100% { transform: translateY(-100vh) translateX(100vw); }
-    }
+      <style jsx>{`
+        @keyframes slide-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-slide-left {
+          animation: slide-left 20s linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
 
-    header {
-      padding: 80px 20px 40px;
-      text-align: center;
-    }
-
-    header img {
-      width: 180px;
-      border-radius: 50%;
-      transition: transform 0.6s ease-in-out;
-    }
-
-    .zoom-in-view {
-      transform: scale(1.15);
-    }
-
-    h1 {
-      color: #ffc107;
-      font-size: 2.5rem;
-      margin: 20px 0 10px;
-    }
-
-    p.bio {
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #ccc;
-    }
-
-    .links {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .links a {
-      color: #ffc107;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 600;
-    }
-
-    .portfolio {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 40px 20px;
-      gap: 20px;
-    }
-
-    .portfolio img {
-      width: 300px;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 20px;
-      transition: all 0.4s ease-in-out;
-      filter: blur(6px);
-    }
-
-    .portfolio img.in-view {
-      filter: blur(0);
-      transform: scale(1.05);
-    }
-  </style>
-</head>
-<body>
-  <div class="background-shapes">
-    <div class="shape" style="width: 150px; height: 150px; top: 10%; left: 10%;"></div>
-    <div class="shape" style="width: 120px; height: 120px; top: 30%; left: 50%;"></div>
-    <div class="shape" style="width: 200px; height: 200px; top: 70%; left: 70%;"></div>
-  </div>
-
-  <header>
-    <img id="profile-pic" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg" alt="Victor Ogbeide">
-    <h1>Victor Ogbeide</h1>
-    <p class="bio">
-      A freelance graphic designer with strong proficiency in <strong>Adobe Photoshop and Illustrator</strong>. I specialize in creating professional and timely designs, especially when there’s a reliable and efficient reward structure in place. I always ensure that an upfront payment is confirmed before commencing any project. Let’s collaborate and create something amazing!
-    </p>
-  </header>
-
-  <div class="links">
-    <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09" target="_blank">X (Twitter)</a>
-    <a href="https://www.instagram.com/p/DGQblj7oChV/?igsh=eGZwam0wN2JwZ2h2" target="_blank">Instagram</a>
-    <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL" target="_blank">Facebook</a>
-    <a href="https://wa.me/message/7U4T2N47JMNOL1" target="_blank">Hire Me</a>
-  </div>
-
-  <section class="portfolio">
-    <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Portfolio 1">
-    <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Portfolio 2">
-  </section>
-
-  <script>
-    const profilePic = document.getElementById('profile-pic');
-    const observerOptions = {
-      root: null,
-      threshold: 0.6
-    };
-
-    const zoomObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        profilePic.classList.toggle('zoom-in-view', entry.isIntersecting);
-      });
-    }, observerOptions);
-
-    zoomObserver.observe(profilePic);
-
-    const portfolioImages = document.querySelectorAll('.portfolio img');
-
-    const portfolioObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        entry.target.classList.toggle('in-view', entry.isIntersecting);
-      });
-    }, { threshold: 0.5 });
-
-    portfolioImages.forEach(img => {
-      portfolioObserver.observe(img);
-    });
-  </script>
-</body>
-</html>
+export default Portfolio;
