@@ -1,159 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Victor Ogbeide | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+import React, { useEffect, useRef } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { Github, Instagram, Facebook, Phone } from "lucide-react";
 
-    body {
-      background-color: #0d0d0d;
-      color: #f8f8f8;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
+const socials = [
+  { icon: Github, link: "https://github.com/dvictorogbeide" },
+  { icon: Instagram, link: "https://instagram.com/dvictorogbeide" },
+  { icon: Facebook, link: "https://facebook.com/dvictorogbeide" },
+  { icon: Phone, link: "tel:+234123456789" },
+];
 
-    header {
-      text-align: center;
-      padding: 4rem 1rem;
-      position: relative;
-      background: radial-gradient(circle at center, #111 0%, #0d0d0d 100%);
-    }
+const portfolioItems = [
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
+  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg",
+];
 
-    header img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid #ffcc00;
-      animation: zoomIn 3s ease-in-out;
-    }
+const Home = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const controls = useAnimation();
 
-    @keyframes zoomIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+  useEffect(() => {
+    controls.start({ scale: isInView ? 1 : 1.2 });
+  }, [isInView, controls]);
 
-    header h1 {
-      margin-top: 1rem;
-      color: #ffcc00;
-      font-size: 2.5rem;
-    }
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+      {/* Background animation */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        style={{
+          backgroundImage: "radial-gradient(circle at center, #1e3a8a33, #000000 70%)",
+          backgroundSize: "200% 200%",
+        }}
+      />
 
-    .intro {
-      max-width: 700px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      line-height: 1.8;
-      font-size: 1.1rem;
-      color: #f0f0f0;
-    }
+      <section className="relative z-10 p-8 max-w-5xl mx-auto">
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">Victor Ogbeide</h1>
+          <p className="text-lg md:text-xl max-w-xl">
+            Freelance Graphic Designer | Photoshop & Illustrator Pro | Clean, Professional & Timely Designs
+          </p>
+          <div className="flex items-center gap-4 mt-6">
+            {socials.map(({ icon: Icon, link }, index) => (
+              <a href={link} key={index} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
+                <Icon className="w-6 h-6" />
+              </a>
+            ))}
+          </div>
+        </motion.div>
 
-    .portfolio-section {
-      padding: 4rem 2rem;
-      background: #111;
-    }
+        {/* Profile image zoom on scroll */}
+        <motion.div
+          ref={ref}
+          animate={controls}
+          transition={{ duration: 0.5 }}
+          className="mt-12 w-full max-w-xs mx-auto"
+        >
+          <img
+            src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg"
+            alt="Victor Ogbeide"
+            className="rounded-full shadow-xl border-4 border-blue-500"
+          />
+        </motion.div>
 
-    .portfolio-section h2 {
-      text-align: center;
-      color: #ffcc00;
-      margin-bottom: 2rem;
-      font-size: 2rem;
-    }
+        {/* Portfolio section */}
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
+          {portfolioItems.map((src, index) => (
+            <motion.div
+              key={index}
+              whileInView={{ filter: "blur(0px)", opacity: 1 }}
+              initial={{ filter: "blur(8px)", opacity: 0.5 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="bg-slate-800 shadow-lg rounded-2xl overflow-hidden">
+                <CardContent className="p-0">
+                  <img src={src} alt={`Portfolio ${index + 1}`} className="w-full h-auto" />
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+};
 
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .portfolio-grid img {
-      width: 100%;
-      border-radius: 1.5rem;
-      object-fit: cover;
-      box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .portfolio-grid img:hover {
-      transform: scale(1.05);
-    }
-
-    .links-section {
-      text-align: center;
-      margin: 4rem auto;
-    }
-
-    .links-section h3 {
-      color: #ffcc00;
-      margin-bottom: 1rem;
-    }
-
-    .links-section a {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #ffcc00;
-      color: #111;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-
-    .links-section a:hover {
-      background-color: #ffd633;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #ccc;
-      background: #0d0d0d;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg" alt="Victor Ogbeide" />
-    <h1>Victor Ogbeide</h1>
-    <p class="intro">
-      A freelance graphic designer with strong proficiency in <strong>Adobe Photoshop and Illustrator</strong>.
-      I specialize in creating professional and timely designs, especially when there’s a reliable and efficient reward structure in place.<br><br>
-      I’m eager to explore how I can contribute to enhancing the quality and delivery speed of your brand.
-      That said, based on my professional experience, I always ensure that an upfront payment is confirmed before commencing any project.
-    </p>
-  </header>
-
-  <section class="portfolio-section">
-    <h2>Featured Works</h2>
-    <div class="portfolio-grid">
-      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 1" />
-      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 2" />
-      <!-- Add 5 more images here when available -->
-    </div>
-  </section>
-
-  <section class="links-section">
-    <h3>Let's Work Together</h3>
-    <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09" target="_blank">Twitter</a>
-    <a href="https://www.instagram.com/p/DGQblj7oChV/?igsh=eGZwam0wN2JwZ2h2" target="_blank">Instagram</a>
-    <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL" target="_blank">Facebook</a>
-    <a href="https://wa.me/message/7U4T2N47JMNOL1" target="_blank">Hire Me</a>
-  </section>
-
-  <footer>
-    &copy; 2025 Victor Ogbeide. All rights reserved.
-  </footer>
-</body>
-</html>
+export default Home;
