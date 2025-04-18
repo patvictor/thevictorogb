@@ -1,95 +1,165 @@
-import React, { useEffect, useRef } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { motion, useAnimation, useInView } from "framer-motion";
-import { Github, Instagram, Facebook, Phone } from "lucide-react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victor Ogbeide - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
 
-const socials = [
-  { icon: Github, link: "https://github.com/dvictorogbeide" },
-  { icon: Instagram, link: "https://instagram.com/dvictorogbeide" },
-  { icon: Facebook, link: "https://facebook.com/dvictorogbeide" },
-  { icon: Phone, link: "tel:+234123456789" },
-];
+    body {
+      background: #0f0f0f;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
 
-const portfolioItems = [
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg",
-];
+    .background-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
 
-const Home = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
-  const controls = useAnimation();
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      background: #ffc107;
+      animation: moveShapes 40s infinite linear;
+    }
 
-  useEffect(() => {
-    controls.start({ scale: isInView ? 1 : 1.2 });
-  }, [isInView, controls]);
+    @keyframes moveShapes {
+      0% { transform: translateY(0) translateX(0); }
+      100% { transform: translateY(-100vh) translateX(100vw); }
+    }
 
-  return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
-      {/* Background animation */}
-      <motion.div
-        className="absolute inset-0 z-0"
-        animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        style={{
-          backgroundImage: "radial-gradient(circle at center, #1e3a8a33, #000000 70%)",
-          backgroundSize: "200% 200%",
-        }}
-      />
+    header {
+      padding: 80px 20px 40px;
+      text-align: center;
+    }
 
-      <section className="relative z-10 p-8 max-w-5xl mx-auto">
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">Victor Ogbeide</h1>
-          <p className="text-lg md:text-xl max-w-xl">
-            Freelance Graphic Designer | Photoshop & Illustrator Pro | Clean, Professional & Timely Designs
-          </p>
-          <div className="flex items-center gap-4 mt-6">
-            {socials.map(({ icon: Icon, link }, index) => (
-              <a href={link} key={index} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
-                <Icon className="w-6 h-6" />
-              </a>
-            ))}
-          </div>
-        </motion.div>
+    header img {
+      width: 180px;
+      border-radius: 50%;
+      transition: transform 0.6s ease-in-out;
+    }
 
-        {/* Profile image zoom on scroll */}
-        <motion.div
-          ref={ref}
-          animate={controls}
-          transition={{ duration: 0.5 }}
-          className="mt-12 w-full max-w-xs mx-auto"
-        >
-          <img
-            src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg"
-            alt="Victor Ogbeide"
-            className="rounded-full shadow-xl border-4 border-blue-500"
-          />
-        </motion.div>
+    .zoom-in-view {
+      transform: scale(1.15);
+    }
 
-        {/* Portfolio section */}
-        <div className="mt-16 grid gap-8 md:grid-cols-2">
-          {portfolioItems.map((src, index) => (
-            <motion.div
-              key={index}
-              whileInView={{ filter: "blur(0px)", opacity: 1 }}
-              initial={{ filter: "blur(8px)", opacity: 0.5 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Card className="bg-slate-800 shadow-lg rounded-2xl overflow-hidden">
-                <CardContent className="p-0">
-                  <img src={src} alt={`Portfolio ${index + 1}`} className="w-full h-auto" />
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-    </main>
-  );
-};
+    h1 {
+      color: #ffc107;
+      font-size: 2.5rem;
+      margin: 20px 0 10px;
+    }
 
-export default Home;
+    p.bio {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    .links {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .links a {
+      color: #ffc107;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+    }
+
+    .portfolio {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+
+    .portfolio img {
+      width: 300px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: all 0.4s ease-in-out;
+      filter: blur(6px);
+    }
+
+    .portfolio img.in-view {
+      filter: blur(0);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="background-shapes">
+    <div class="shape" style="width: 150px; height: 150px; top: 10%; left: 10%;"></div>
+    <div class="shape" style="width: 120px; height: 120px; top: 30%; left: 50%;"></div>
+    <div class="shape" style="width: 200px; height: 200px; top: 70%; left: 70%;"></div>
+  </div>
+
+  <header>
+    <img id="profile-pic" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg" alt="Victor Ogbeide">
+    <h1>Victor Ogbeide</h1>
+    <p class="bio">
+      A freelance graphic designer with strong proficiency in <strong>Adobe Photoshop and Illustrator</strong>. I specialize in creating professional and timely designs, especially when there’s a reliable and efficient reward structure in place. I always ensure that an upfront payment is confirmed before commencing any project. Let’s collaborate and create something amazing!
+    </p>
+  </header>
+
+  <div class="links">
+    <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09" target="_blank">X (Twitter)</a>
+    <a href="https://www.instagram.com/p/DGQblj7oChV/?igsh=eGZwam0wN2JwZ2h2" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL" target="_blank">Facebook</a>
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" target="_blank">Hire Me</a>
+  </div>
+
+  <section class="portfolio">
+    <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Portfolio 1">
+    <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Portfolio 2">
+  </section>
+
+  <script>
+    const profilePic = document.getElementById('profile-pic');
+    const observerOptions = {
+      root: null,
+      threshold: 0.6
+    };
+
+    const zoomObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        profilePic.classList.toggle('zoom-in-view', entry.isIntersecting);
+      });
+    }, observerOptions);
+
+    zoomObserver.observe(profilePic);
+
+    const portfolioImages = document.querySelectorAll('.portfolio img');
+
+    const portfolioObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+      });
+    }, { threshold: 0.5 });
+
+    portfolioImages.forEach(img => {
+      portfolioObserver.observe(img);
+    });
+  </script>
+</body>
+</html>
