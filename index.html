@@ -1,79 +1,173 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victor Ogbeide - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(255, 255, 0, 0.05);
+    }
+    .hero img {
+      width: 200px;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      transition: transform 0.6s ease;
+    }
+    .hero img.zoom {
+      transform: scale(1.2);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: yellow;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 800px;
+      line-height: 1.8;
+      font-size: 1rem;
+      color: #ddd;
+    }
+    .links {
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .links a {
+      background: yellow;
+      color: #0f0f0f;
+      padding: 0.8rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .links a:hover {
+      background: #f5f5f5;
+      color: #000;
+    }
+    .portfolio {
+      padding: 4rem 2rem;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .portfolio h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: yellow;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 1rem;
+      overflow: hidden;
+    }
+    .portfolio-item {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      overflow: hidden;
+      transform: translateX(100%);
+      opacity: 0.5;
+      transition: all 1s ease;
+    }
+    .portfolio-item.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
 
-const images = [
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg",
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg",
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg",
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg",
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg",
-  "https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg"
-];
-
-const Portfolio = () => {
-  return (
-    <div className="p-4 bg-gradient-to-b from-black to-gray-900 min-h-screen text-white">
-      <div className="text-center mb-10">
-        <img
-          src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg"
-          alt="Victor Ogbeide"
-          className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg border-4 border-white/30"
-        />
-        <h1 className="text-4xl font-bold mb-2">Victor Ogbeide</h1>
-        <p className="text-lg max-w-xl mx-auto leading-relaxed">
-          I'm a professional freelance graphic designer skilled in Adobe Photoshop and Illustrator. I specialize in creating professional and timely designs that meet your business needs. Whether it's a flyer, logo, or full brand design, I deliver with quality. I only start a project after upfront payment is confirmed, ensuring commitment and focus on every design.
-        </p>
-        <div className="flex justify-center gap-4 mt-4">
-          <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09" target="_blank" rel="noopener noreferrer">
-            <Button>Twitter</Button>
-          </a>
-          <a href="https://www.instagram.com/p/DGQblj7oChV/?igsh=eGZwam0wN2JwZ2h2" target="_blank" rel="noopener noreferrer">
-            <Button>Instagram</Button>
-          </a>
-          <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
-            <Button>Facebook</Button>
-          </a>
-          <a href="https://wa.me/message/7U4T" target="_blank" rel="noopener noreferrer">
-            <Button variant="secondary">Hire Me</Button>
-          </a>
-        </div>
-      </div>
-
-      <div className="overflow-x-hidden relative">
-        <div className="grid grid-cols-5 gap-4 animate-slide-left w-[200%]">
-          {images.map((src, idx) => (
-            <Card
-              key={idx}
-              className="bg-white/10 backdrop-blur-md border border-white/20 shadow-lg hover:scale-105 transition-transform duration-300"
-            >
-              <CardContent className="p-0">
-                <img
-                  src={src}
-                  alt={`Design ${idx + 1}`}
-                  className="w-full h-40 object-cover rounded-t-xl"
-                />
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      <style jsx>{`
-        @keyframes slide-left {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-slide-left {
-          animation: slide-left 20s linear infinite;
-        }
-      `}</style>
+  <section class="hero">
+    <img id="profile-pic" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg" alt="Victor Ogbeide">
+    <h1>Victor Ogbeide</h1>
+    <p>
+      I’m a freelance graphic designer with strong proficiency in <strong>Adobe Photoshop and Illustrator</strong>.
+      I specialize in creating professional and timely designs, especially when there’s a reliable and efficient reward structure in place.
+      I’m eager to explore how I can contribute to enhancing the quality and delivery speed of your brand. That said, based on my professional experience,
+      I always ensure that an upfront payment is confirmed before commencing any project.
+    </p>
+    <div class="links">
+      <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09" target="_blank">X</a>
+      <a href="https://www.instagram.com/p/DGQblj7oChV/?igsh=eGZwam0wN2JwZ2h2" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL" target="_blank">Facebook</a>
+      <a href="https://wa.me/message/7U4T2N47JMNOL1" target="_blank">Hire Me</a>
     </div>
-  );
-};
+  </section>
 
-export default Portfolio;
+  <section class="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid" id="portfolio-grid">
+      <!-- 10 duplicated items -->
+      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 1"></div>
+      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 2"></div>
+      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 3"></div>
+      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 4"></div>
+      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 5"></div>
+      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 6"></div>
+      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 7"></div>
+      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 8"></div>
+      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378754-01.jpeg" alt="Design 9"></div>
+      <div class="portfolio-item"><img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/1001378986-01.jpeg" alt="Design 10"></div>
+    </div>
+  </section>
+
+  <script>
+    const profilePic = document.getElementById('profile-pic');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+
+      // Profile zoom effect
+      const heroTop = profilePic.getBoundingClientRect().top;
+      if (heroTop < window.innerHeight / 2 && heroTop > 0) {
+        profilePic.classList.add('zoom');
+      } else {
+        profilePic.classList.remove('zoom');
+      }
+
+      // Portfolio slide in effect
+      portfolioItems.forEach((item) => {
+        const itemTop = item.getBoundingClientRect().top;
+        if (itemTop < window.innerHeight) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
