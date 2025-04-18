@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Victor Ogbeide | Creative Designer</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -19,31 +19,35 @@
       padding: 50px 20px;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 700;
       margin-bottom: 30px;
     }
     .highlight {
       color: #FFD700;
     }
+
+    /* Hexagon animation wrapper */
     .profile-wrapper {
       position: relative;
       display: inline-block;
       margin-bottom: 30px;
     }
-    .circle-back {
+
+    .hexagon-back {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 240px;
-      height: 120px;
-      background: radial-gradient(circle at center, #FFD700, #ff9900);
-      border-radius: 120px 120px 0 0;
+      width: 260px;
+      height: 150px;
+      background: conic-gradient(#FFD700, #FF9900);
+      clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
       transform: translate(-50%, -50%) rotate(0deg);
+      animation: rotateHex 10s linear infinite;
       z-index: -1;
-      animation: rotateCircle 6s linear infinite;
     }
-    @keyframes rotateCircle {
+
+    @keyframes rotateHex {
       from {
         transform: translate(-50%, -50%) rotate(0deg);
       }
@@ -51,34 +55,38 @@
         transform: translate(-50%, -50%) rotate(360deg);
       }
     }
+
     .profile-box {
-      display: inline-block;
+      background-color: #FFD700;
       padding: 10px;
-      border-radius: 16px;
-      border: 3px solid;
-      border-image-slice: 1;
-      border-image-source: linear-gradient(45deg, #FFD700, #ff9900);
+      border-radius: 10px;
+      display: inline-block;
       overflow: hidden;
-      transition: transform 0.6s ease;
     }
-    .profile-box:hover {
-      transform: scale(1.05);
-    }
+
     .profile-img {
       width: 200px;
       height: 200px;
       object-fit: cover;
       border-radius: 8px;
     }
+
     .about {
       max-width: 800px;
       margin: 30px auto;
       font-size: 1rem;
       line-height: 1.8;
+      border-top: 1px solid #444;
+      border-bottom: 1px solid #444;
+      padding: 30px 10px;
     }
+
     .about p {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 15px;
     }
+
     .cta-container {
       display: flex;
       justify-content: center;
@@ -86,35 +94,43 @@
       margin-top: 30px;
       flex-wrap: wrap;
     }
+
     .cta {
       text-decoration: none;
       padding: 12px 30px;
       border-radius: 8px;
       font-weight: 600;
-      transition: background-color 0.4s ease, color 0.4s ease;
+      transition: all 0.4s ease;
     }
+
     .cta.hire {
       background-color: #FFD700;
       color: #000;
     }
+
     .cta.hire:hover {
       background-color: #fff;
       color: #000;
     }
+
     .cta.portfolio {
-      background-color: #007bff;
-      color: #fff;
-      border: 2px solid #007bff;
+      border: 2px solid transparent;
+      background: linear-gradient(#0f0f0f, #0f0f0f) padding-box,
+                  linear-gradient(135deg, #FFD700, #CCCCCC) border-box;
+      color: #FFD700;
     }
+
     .cta.portfolio:hover {
-      background-color: #0056b3;
-      color: #fff;
+      background: linear-gradient(135deg, #d4d4d4, #ffffff);
+      color: #000;
     }
+
     footer {
       margin-top: 50px;
       font-size: 0.9rem;
       color: #888;
     }
+
     .socials a {
       color: #FFD700;
       margin: 0 10px;
@@ -126,9 +142,9 @@
 
   <h1>Welcome to my space, <span class="highlight">I’m Victor Ogbeide</span></h1>
 
-  <!-- Profile Picture + Semi-circle -->
+  <!-- Profile Picture + Hexagon Background -->
   <div class="profile-wrapper">
-    <div class="circle-back"></div>
+    <div class="hexagon-back"></div>
     <div class="profile-box">
       <img class="profile-img" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/Photoroom-20250418_091406.png" alt="Victor Ogbeide Profile Picture" />
     </div>
@@ -136,10 +152,13 @@
 
   <!-- About Me Section -->
   <div class="about">
-    <p><strong>Who I Am:</strong> I'm a passionate graphic and motion designer with a love for clean, intentional design that tells compelling stories.</p>
-    <p><strong>What I Do:</strong> From brand identities to motion graphics and social media visuals, I craft visuals that not only look good but communicate your message effectively.</p>
-    <p><strong>My Experience:</strong> I’ve worked with both local and international clients across different industries, delivering high-impact solutions that make brands stand out.</p>
-    <p><strong>My Philosophy:</strong> Every pixel counts. I believe in design that’s rooted in clarity, energy, and storytelling.</p>
+    <p><strong>Who I Am:</strong><br> I'm a passionate graphic and motion designer with a love for clean, intentional design that tells compelling stories.</p>
+
+    <p><strong>What I Do:</strong><br> From brand identities to motion graphics and social media visuals, I craft visuals that not only look good but communicate your message effectively.</p>
+
+    <p><strong>My Experience:</strong><br> I’ve worked with both local and international clients across different industries, delivering high-impact solutions that make brands stand out.</p>
+
+    <p><strong>My Philosophy:</strong><br> Every pixel counts. I believe in design that’s rooted in clarity, energy, and storytelling.</p>
   </div>
 
   <!-- Call-to-Action Links -->
