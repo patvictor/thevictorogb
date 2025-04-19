@@ -1,165 +1,164 @@
-<!DOCTYPE html>
-<html lang="en">
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { FaArrowRight } from 'react-icons/fa6';
+import Image from 'next/image';
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Victor Ogbeide | Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background-color: #0a0a0a;
-      color: white;
-      overflow-x: hidden;
+const fadeIn = (delay = 0) => ({
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      delay,
+    },
+  },
+});
+
+const HomeHero = () => {
+  const controls = useAnimation();
+  const [aboutVisible, setAboutVisible] = useState(false);
+  const hireRef = useRef(null);
+  const portfolioRef = useRef(null);
+
+  const handleScroll = () => {
+    const about = document.getElementById('about');
+    if (about) {
+      const rect = about.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+      setAboutVisible(isVisible);
     }
+  };
 
-    .background-shape {
-      position: fixed;
-      width: 300px;
-      height: 300px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 50%;
-      animation: moveShape 10s infinite alternate ease-in-out;
-      z-index: 0;
-    }
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    @keyframes moveShape {
-      0% {
-        transform: translate(0, 0);
+  useEffect(() => {
+    controls.start('visible');
+  }, [controls]);
+
+  useEffect(() => {
+    let interval;
+    let delay = 0;
+    const animateReflection = () => {
+      const hire = hireRef.current;
+      const portfolio = portfolioRef.current;
+      if (hire && portfolio) {
+        hire.classList.add('shine');
+        setTimeout(() => {
+          hire.classList.remove('shine');
+          portfolio.classList.add('shine');
+          setTimeout(() => {
+            portfolio.classList.remove('shine');
+          }, 2000);
+        }, 2000);
       }
-      100% {
-        transform: translate(100px, 200px);
-      }
-    }
+    };
+    interval = setInterval(animateReflection, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
-    .reflection {
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-      transform: skewX(-20deg);
-      animation: shimmer 3s infinite;
-    }
+  return (
+    <div className="min-h-screen w-full bg-black text-white overflow-x-hidden">
+      <motion.div
+        initial="hidden"
+        animate={controls}
+        variants={fadeIn(0)}
+        className="p-8 pt-28 text-center"
+      >
+        <motion.h1
+          className="text-4xl font-bold mb-4"
+          variants={fadeIn(1)}
+        >
+          Hi, I’m Victor Ogbeide
+        </motion.h1>
 
-    .reflection.hire {
-      animation-delay: 0s;
-    }
+        <motion.p
+          className="text-lg max-w-xl mx-auto mb-6"
+          variants={fadeIn(2)}
+        >
+          I design professional and timely graphics for businesses, events and brands. I love to use clean layout and visual harmony to communicate ideas.
+        </motion.p>
 
-    .reflection.portfolio {
-      animation-delay: 2s;
-    }
+        <motion.div
+          className="flex justify-center items-center gap-4"
+          variants={fadeIn(3)}
+        >
+          <motion.a
+            ref={hireRef}
+            href="https://wa.me/message/7U4T2N47JMNOL1"
+            className="relative rounded-2xl px-6 py-3 text-white bg-gradient-to-r from-slate-200 via-white to-slate-200 bg-[length:200%_100%] overflow-hidden"
+            style={{ backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}
+          >
+            <span className="shine-effect">Hire Me</span>
+          </motion.a>
 
-    @keyframes shimmer {
-      0% {
-        left: -100%;
-      }
-      50% {
-        left: 100%;
-      }
-      100% {
-        left: 100%;
-      }
-    }
+          <motion.a
+            ref={portfolioRef}
+            href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09"
+            className="relative rounded-2xl px-6 py-3 text-white bg-gradient-to-r from-slate-200 via-white to-slate-200 bg-[length:200%_100%] overflow-hidden"
+            style={{ backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}
+          >
+            <span className="shine-effect">Portfolio</span>
+          </motion.a>
+        </motion.div>
 
-    .glide-line {
-      position: absolute;
-      height: 3px;
-      width: 100%;
-      background: linear-gradient(to right, #facc15, #f472b6);
-      top: 50%;
-      left: 0;
-      transform: scaleX(0);
-      transform-origin: left;
-      animation: glide 3s ease-in-out infinite;
-    }
+        <motion.div className="mt-10" variants={fadeIn(4)}>
+          <Image
+            src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg"
+            alt="Victor Ogbeide"
+            width={180}
+            height={180}
+            className="rounded-full mx-auto border-4 border-white motion-safe:animate-fadeIn"
+          />
+        </motion.div>
+      </motion.div>
 
-    @keyframes glide {
-      0% {
-        transform: scaleX(0);
-        opacity: 0;
-      }
-      30% {
-        opacity: 1;
-      }
-      50% {
-        transform: scaleX(1);
-      }
-      80% {
-        opacity: 1;
-      }
-      100% {
-        transform: scaleX(0);
-        opacity: 0;
-      }
-    }
+      <motion.div
+        id="about"
+        initial={{ opacity: 0.2 }}
+        animate={{ opacity: aboutVisible ? 1 : 0.2 }}
+        transition={{ duration: 1 }}
+        className="p-8 text-center"
+      >
+        <h2 className="text-2xl font-semibold mb-2">About Me</h2>
+        <p className="text-md max-w-2xl mx-auto">
+          I'm passionate about helping people and businesses look good and stay memorable with good visual presentation.
+        </p>
+      </motion.div>
 
-    .about-section {
-      opacity: 0.3;
-      transition: opacity 1s ease-in-out;
-    }
+      <style jsx>{`
+        .shine {
+          background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
+          background-size: 200% 100%;
+          background-position: -100% center;
+          animation: shineEffect 2s ease forwards;
+        }
 
-    .about-section.visible {
-      opacity: 1;
-    }
-  </style>
-</head>
+        .shine-effect {
+          position: relative;
+          display: inline-block;
+        }
 
-<body class="relative">
-  <!-- Background Shapes -->
-  <div class="background-shape" style="top: 10%; left: 10%;"></div>
-  <div class="background-shape" style="bottom: 15%; right: 20%;"></div>
+        @keyframes shineEffect {
+          0% { background-position: -100% center; }
+          100% { background-position: 200% center; }
+        }
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col items-center justify-center relative z-10 text-center">
-    <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg"
-      alt="Victor Ogbeide" class="rounded-full w-40 h-40 object-cover shadow-lg transition-transform duration-1000 ease-out translate-y-12 opacity-0" id="profile-pic" />
-    <h1 class="text-4xl md:text-6xl font-bold mt-4">Victor Ogbeide</h1>
-    <p class="text-lg md:text-xl mt-2 mb-6">Creative Graphic Designer</p>
-    <div class="flex gap-4 relative">
-      <a href="https://wa.me/message/7U4T2N47JMNOL1"
-        class="relative px-6 py-2 bg-yellow-500 text-black font-semibold rounded-xl overflow-hidden hover:scale-105 transition-transform">
-        Hire Me
-        <div class="reflection hire"></div>
-      </a>
-      <div class="glide-line"></div>
-      <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09"
-        class="relative px-6 py-2 bg-pink-500 text-white font-semibold rounded-xl overflow-hidden hover:scale-105 transition-transform">
-        Portfolio
-        <div class="reflection portfolio"></div>
-      </a>
+        @keyframes fadeInImage {
+          from { opacity: 0; transform: scale(0.8); }
+          to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-fadeIn {
+          animation: fadeInImage 1s ease-in-out forwards;
+        }
+      `}</style>
     </div>
-  </section>
+  );
+};
 
-  <!-- About Section -->
-  <section id="about" class="about-section px-6 py-20 max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
-    <p class="text-lg leading-relaxed">
-      I’m a passionate graphic designer specializing in Adobe Photoshop and Illustrator. I deliver timely and
-      professional designs for clients, with a strong preference for upfront payments.
-    </p>
-  </section>
-
-  <script>
-    // Animate profile image entrance
-    window.addEventListener('load', () => {
-      const pic = document.getElementById('profile-pic');
-      pic.classList.remove('translate-y-12', 'opacity-0');
-      pic.classList.add('translate-y-0', 'opacity-100');
-    });
-
-    // Scroll effect for about section visibility
-    const aboutSection = document.getElementById('about');
-    window.addEventListener('scroll', () => {
-      const rect = aboutSection.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        aboutSection.classList.add('visible');
-      } else {
-        aboutSection.classList.remove('visible');
-      }
-    });
-  </script>
-</body>
-
-</html>
+export default HomeHero;
