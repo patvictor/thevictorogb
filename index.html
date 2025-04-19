@@ -1,164 +1,253 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { FaArrowRight } from 'react-icons/fa6';
-import Image from 'next/image';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Victor Ogbeide | Creative Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-const fadeIn = (delay = 0) => ({
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      delay,
-    },
-  },
-});
+  <!-- AOS CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-const HomeHero = () => {
-  const controls = useAnimation();
-  const [aboutVisible, setAboutVisible] = useState(false);
-  const hireRef = useRef(null);
-  const portfolioRef = useRef(null);
-
-  const handleScroll = () => {
-    const about = document.getElementById('about');
-    if (about) {
-      const rect = about.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
-      setAboutVisible(isVisible);
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  };
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+    }
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    .header-box {
+      display: inline-block;
+      background-color: #FFD700;
+      color: #000;
+      padding: 15px 25px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
 
-  useEffect(() => {
-    controls.start('visible');
-  }, [controls]);
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
 
-  useEffect(() => {
-    let interval;
-    let delay = 0;
-    const animateReflection = () => {
-      const hire = hireRef.current;
-      const portfolio = portfolioRef.current;
-      if (hire && portfolio) {
-        hire.classList.add('shine');
-        setTimeout(() => {
-          hire.classList.remove('shine');
-          portfolio.classList.add('shine');
-          setTimeout(() => {
-            portfolio.classList.remove('shine');
-          }, 2000);
-        }, 2000);
-      }
-    };
-    interval = setInterval(animateReflection, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    .tagline {
+      font-size: 0.75rem;
+      margin-bottom: 10px;
+      color: #FFD700;
+      font-weight: 400;
+    }
 
-  return (
-    <div className="min-h-screen w-full bg-black text-white overflow-x-hidden">
-      <motion.div
-        initial="hidden"
-        animate={controls}
-        variants={fadeIn(0)}
-        className="p-8 pt-28 text-center"
-      >
-        <motion.h1
-          className="text-4xl font-bold mb-4"
-          variants={fadeIn(1)}
-        >
-          Hi, I’m Victor Ogbeide
-        </motion.h1>
+    .profile-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
 
-        <motion.p
-          className="text-lg max-w-xl mx-auto mb-6"
-          variants={fadeIn(2)}
-        >
-          I design professional and timely graphics for businesses, events and brands. I love to use clean layout and visual harmony to communicate ideas.
-        </motion.p>
+    .color-palette-shape {
+      width: 230px;
+      height: 230px;
+      background: #FFD700;
+      border-radius: 60% 40% 40% 60% / 40% 60% 60% 40%;
+      padding: 5px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
 
-        <motion.div
-          className="flex justify-center items-center gap-4"
-          variants={fadeIn(3)}
-        >
-          <motion.a
-            ref={hireRef}
-            href="https://wa.me/message/7U4T2N47JMNOL1"
-            className="relative rounded-2xl px-6 py-3 text-white bg-gradient-to-r from-slate-200 via-white to-slate-200 bg-[length:200%_100%] overflow-hidden"
-            style={{ backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}
-          >
-            <span className="shine-effect">Hire Me</span>
-          </motion.a>
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
 
-          <motion.a
-            ref={portfolioRef}
-            href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09"
-            className="relative rounded-2xl px-6 py-3 text-white bg-gradient-to-r from-slate-200 via-white to-slate-200 bg-[length:200%_100%] overflow-hidden"
-            style={{ backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}
-          >
-            <span className="shine-effect">Portfolio</span>
-          </motion.a>
-        </motion.div>
+    .cta-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
 
-        <motion.div className="mt-10" variants={fadeIn(4)}>
-          <Image
-            src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/my%20pic.jpg"
-            alt="Victor Ogbeide"
-            width={180}
-            height={180}
-            className="rounded-full mx-auto border-4 border-white motion-safe:animate-fadeIn"
-          />
-        </motion.div>
-      </motion.div>
+    .cta {
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ccc, #eee);
+      color: #000;
+    }
 
-      <motion.div
-        id="about"
-        initial={{ opacity: 0.2 }}
-        animate={{ opacity: aboutVisible ? 1 : 0.2 }}
-        transition={{ duration: 1 }}
-        className="p-8 text-center"
-      >
-        <h2 className="text-2xl font-semibold mb-2">About Me</h2>
-        <p className="text-md max-w-2xl mx-auto">
-          I'm passionate about helping people and businesses look good and stay memorable with good visual presentation.
-        </p>
-      </motion.div>
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: skewX(-20deg);
+    }
 
-      <style jsx>{`
-        .shine {
-          background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
-          background-size: 200% 100%;
-          background-position: -100% center;
-          animation: shineEffect 2s ease forwards;
-        }
+    .cta.hire::before {
+      animation: shimmerHire 5s infinite;
+    }
 
-        .shine-effect {
-          position: relative;
-          display: inline-block;
-        }
+    .cta.portfolio::before {
+      animation: shimmerPortfolio 7s infinite;
+    }
 
-        @keyframes shineEffect {
-          0% { background-position: -100% center; }
-          100% { background-position: 200% center; }
-        }
+    @keyframes shimmerHire {
+      0% { left: -75%; }
+      50% { left: 125%; }
+      100% { left: 125%; }
+    }
 
-        @keyframes fadeInImage {
-          from { opacity: 0; transform: scale(0.8); }
-          to { opacity: 1; transform: scale(1); }
-        }
+    @keyframes shimmerPortfolio {
+      0% { left: -75%; }
+      50% { left: 125%; }
+      100% { left: 125%; }
+    }
 
-        .animate-fadeIn {
-          animation: fadeInImage 1s ease-in-out forwards;
-        }
-      `}</style>
+    .about {
+      max-width: 800px;
+      margin: 20px auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .about h3 {
+      color: #ffff99;
+      margin-top: 30px;
+      border-top: 1px solid #333;
+      padding-top: 15px;
+    }
+
+    .mini-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .mini-btn {
+      text-decoration: none;
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: transform 0.3s ease;
+    }
+
+    .mini-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-photoshop {
+      background-color: #31A8FF;
+      color: #fff;
+    }
+
+    .btn-smartphone {
+      background: linear-gradient(to right, red, yellow);
+      color: #000;
+    }
+
+    .btn-mentorship {
+      background: linear-gradient(to right, #ccc, #eee);
+      color: #000;
+    }
+
+    .socials {
+      margin-top: 30px;
+    }
+
+    .socials a {
+      color: #FFD700;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-box" data-aos="fade-up">
+    <h1>A professional Graphic Designer with years of experience.</h1>
+  </div>
+  <div class="tagline" data-aos="fade-up" data-aos-delay="100">Skillful. Light. Influence</div>
+
+  <!-- Profile -->
+  <div class="profile-wrapper" data-aos="fade-up" data-aos-delay="200">
+    <div class="color-palette-shape">
+      <img class="profile-img" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/Photoroom-20250418_091406.png" alt="Victor Ogbeide Profile Picture" />
     </div>
-  );
-};
+  </div>
 
-export default HomeHero;
+  <!-- CTA Buttons -->
+  <div class="cta-container" data-aos="fade-up" data-aos-delay="300">
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="cta hire">Hire Me</a>
+    <a href="https://pin.it/iiK3onxdD" class="cta portfolio">My Portfolio</a>
+  </div>
+
+  <!-- About Section -->
+  <div class="about" data-aos="fade-up" data-aos-delay="400">
+    <h3>About Me</h3>
+    <p>My name is <span class="highlight">Victor Ogbeide</span>, and I'm a passionate graphic designer dedicated to bringing visual ideas to life.</p>
+
+    <h3>Experience</h3>
+    <p>I specialize in creating high-impact designs that connect deeply with your brand's message and audience. I’ve worked with local and international clients across various industries.</p>
+
+    <h3>Philosophy</h3>
+    <p>My design philosophy centers around clarity, intentionality, and storytelling—whether it’s a brand identity, social media visuals, or event branding.</p>
+
+    <h3>My Approach</h3>
+    <p>Every detail counts, and I bring energy and creativity into every pixel.</p>
+
+    <!-- Courses and Mentorship Buttons -->
+    <h3>Courses & Mentorship</h3>
+    <div class="mini-buttons" data-aos="fade-up" data-aos-delay="500">
+      <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-photoshop">Get My Photoshop Design Course</a>
+      <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-smartphone">Get My Smartphone Design Course</a>
+      <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-mentorship">Get My Mentorship Plan</a>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="socials" data-aos="fade-up" data-aos-delay="600">
+      <h3>Connect with Me</h3>
+      <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL">Facebook</a>
+      <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09">X (Twitter)</a>
+    </div>
+  </div>
+
+  <footer data-aos="fade-up" data-aos-delay="700">
+    &copy; 2025 Victor Ogbeide. All rights reserved.
+  </footer>
+
+  <!-- AOS JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  </script>
+</body>
+</html>
