@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Victor Ogbeide | Creative Designer</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -19,12 +19,13 @@
       padding: 50px 20px;
     }
 
-    .scroll-fade-up {
+    .fade-up {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(30px);
       transition: all 0.8s ease-out;
     }
-    .scroll-fade-up.show {
+
+    .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -37,6 +38,7 @@
       border-radius: 12px;
       margin-bottom: 10px;
     }
+
     h1 {
       font-size: 1.5rem;
       font-weight: 700;
@@ -87,33 +89,41 @@
       padding: 12px 30px;
       border-radius: 8px;
       font-weight: 600;
-      transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s;
-    }
-
-    .cta.hire {
-      background: linear-gradient(to right, #bbb, #eee);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ccc, #eee);
       color: #000;
     }
 
-    .cta.hire:active {
-      background-color: #FFD700;
-      color: #000;
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: skewX(-20deg);
     }
 
-    .cta.hire:hover {
-      transform: scale(1.05);
+    .cta.hire::before {
+      animation: shimmerHire 5s infinite;
     }
 
-    .cta.portfolio {
-      background: linear-gradient(to right, #ccc, #eee);
-      color: #000;
-      border: 2px solid #FFD700;
+    .cta.portfolio::before {
+      animation: shimmerPortfolio 7s infinite;
     }
 
-    .cta.portfolio:hover {
-      background-color: #FFD700;
-      color: #000;
-      transform: scale(1.05);
+    @keyframes shimmerHire {
+      0% { left: -75%; }
+      50% { left: 125%; }
+      100% { left: 125%; }
+    }
+
+    @keyframes shimmerPortfolio {
+      0% { left: -75%; }
+      50% { left: 125%; }
+      100% { left: 125%; }
     }
 
     .about {
@@ -186,45 +196,37 @@
 <body>
 
   <!-- Header -->
-  <div class="header-box scroll-fade-up">
+  <div class="fade-up header-box">
     <h1>A professional Graphic Designer with years of experience.</h1>
   </div>
-  <div class="tagline scroll-fade-up">Skillful. Light. Influence</div>
+  <div class="fade-up tagline">Skillful. Light. Influence</div>
 
   <!-- Profile -->
-  <div class="profile-wrapper scroll-fade-up">
+  <div class="fade-up profile-wrapper">
     <div class="color-palette-shape">
       <img class="profile-img" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/Photoroom-20250418_091406.png" alt="Victor Ogbeide Profile Picture" />
     </div>
   </div>
 
-  <!-- CTA Buttons: Hire Me & Portfolio -->
-  <div class="cta-container scroll-fade-up">
+  <!-- CTA Buttons -->
+  <div class="fade-up cta-container">
     <a href="https://wa.me/message/7U4T2N47JMNOL1" class="cta hire">Hire Me</a>
     <a href="https://pin.it/iiK3onxdD" class="cta portfolio">My Portfolio</a>
   </div>
 
   <!-- About Section -->
-  <div class="about scroll-fade-up">
+  <div class="fade-up about">
     <h3>About Me</h3>
-    <p>
-      My name is <span class="highlight">Victor Ogbeide</span>, and I'm a passionate graphic designer dedicated to bringing visual ideas to life.
-    </p>
+    <p>My name is <span class="highlight">Victor Ogbeide</span>, and I'm a passionate graphic designer dedicated to bringing visual ideas to life.</p>
 
     <h3>Experience</h3>
-    <p>
-      I specialize in creating high-impact designs that connect deeply with your brand's message and audience. I’ve worked with local and international clients across various industries.
-    </p>
+    <p>I specialize in creating high-impact designs that connect deeply with your brand's message and audience. I’ve worked with local and international clients across various industries.</p>
 
     <h3>Philosophy</h3>
-    <p>
-      My design philosophy centers around clarity, intentionality, and storytelling—whether it’s a brand identity, social media visuals, or event branding.
-    </p>
+    <p>My design philosophy centers around clarity, intentionality, and storytelling—whether it’s a brand identity, social media visuals, or event branding.</p>
 
     <h3>My Approach</h3>
-    <p>
-      Every detail counts, and I bring energy and creativity into every pixel.
-    </p>
+    <p>Every detail counts, and I bring energy and creativity into every pixel.</p>
 
     <!-- Courses and Mentorship Buttons -->
     <h3>Courses & Mentorship</h3>
@@ -245,23 +247,22 @@
   </div>
 
   <!-- Footer -->
-  <footer class="scroll-fade-up">
+  <footer class="fade-up">
     <p>&copy; 2025 Victor Ogbeide. All rights reserved.</p>
   </footer>
 
-  <!-- Scroll Animation Script -->
+  <!-- Scroll Reveal Script -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+          entry.target.classList.add('visible');
         }
       });
-    });
+    }, { threshold: 0.2 });
 
-    document.querySelectorAll('.scroll-fade-up').forEach(el => {
-      observer.observe(el);
-    });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
+
 </body>
 </html>
