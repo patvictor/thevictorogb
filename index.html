@@ -19,6 +19,16 @@
       padding: 50px 20px;
     }
 
+    .scroll-fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    .scroll-fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .header-box {
       display: inline-block;
       background-color: #FFD700;
@@ -77,17 +87,21 @@
       padding: 12px 30px;
       border-radius: 8px;
       font-weight: 600;
-      transition: background-color 0.4s ease, color 0.4s ease;
+      transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s;
     }
 
     .cta.hire {
+      background: linear-gradient(to right, #bbb, #eee);
+      color: #000;
+    }
+
+    .cta.hire:active {
       background-color: #FFD700;
       color: #000;
     }
 
     .cta.hire:hover {
-      background-color: #fff;
-      color: #000;
+      transform: scale(1.05);
     }
 
     .cta.portfolio {
@@ -99,6 +113,7 @@
     .cta.portfolio:hover {
       background-color: #FFD700;
       color: #000;
+      transform: scale(1.05);
     }
 
     .about {
@@ -171,26 +186,26 @@
 <body>
 
   <!-- Header -->
-  <div class="header-box">
+  <div class="header-box scroll-fade-up">
     <h1>A professional Graphic Designer with years of experience.</h1>
   </div>
-  <div class="tagline">Skillful. Light. Influence</div>
+  <div class="tagline scroll-fade-up">Skillful. Light. Influence</div>
 
   <!-- Profile -->
-  <div class="profile-wrapper">
+  <div class="profile-wrapper scroll-fade-up">
     <div class="color-palette-shape">
       <img class="profile-img" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/Photoroom-20250418_091406.png" alt="Victor Ogbeide Profile Picture" />
     </div>
   </div>
 
   <!-- CTA Buttons: Hire Me & Portfolio -->
-  <div class="cta-container">
+  <div class="cta-container scroll-fade-up">
     <a href="https://wa.me/message/7U4T2N47JMNOL1" class="cta hire">Hire Me</a>
     <a href="https://pin.it/iiK3onxdD" class="cta portfolio">My Portfolio</a>
   </div>
 
   <!-- About Section -->
-  <div class="about">
+  <div class="about scroll-fade-up">
     <h3>About Me</h3>
     <p>
       My name is <span class="highlight">Victor Ogbeide</span>, and I'm a passionate graphic designer dedicated to bringing visual ideas to life.
@@ -230,9 +245,23 @@
   </div>
 
   <!-- Footer -->
-  <footer>
+  <footer class="scroll-fade-up">
     <p>&copy; 2025 Victor Ogbeide. All rights reserved.</p>
   </footer>
 
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    document.querySelectorAll('.scroll-fade-up').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
