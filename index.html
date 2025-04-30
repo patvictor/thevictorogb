@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Victor Ogbeide | Creative Designer</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- AOS CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
@@ -15,12 +13,16 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #0f0f0f;
       color: #fff;
-      text-align: center;
       padding: 50px 20px;
+    }
+
+    h1, h3, p {
+      margin-bottom: 10px;
     }
 
     .header-box {
@@ -30,25 +32,25 @@
       padding: 15px 25px;
       border-radius: 12px;
       margin-bottom: 10px;
+      max-width: 90%;
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.3;
     }
 
     .tagline {
-      font-size: 0.75rem;
-      margin-bottom: 10px;
+      font-size: 0.85rem;
       color: #FFD700;
-      font-weight: 400;
+      margin-bottom: 20px;
     }
 
     .profile-wrapper {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
     }
 
     .color-palette-shape {
@@ -71,21 +73,21 @@
 
     .cta-container {
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 20px 0;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
     }
 
     .cta {
       text-decoration: none;
-      padding: 12px 30px;
+      padding: 12px 25px;
       border-radius: 8px;
       font-weight: 600;
-      position: relative;
-      overflow: hidden;
       background: linear-gradient(135deg, #ccc, #eee);
       color: #000;
+      position: relative;
+      overflow: hidden;
     }
 
     .cta::before {
@@ -121,9 +123,10 @@
 
     .about {
       max-width: 800px;
-      margin: 20px auto;
+      margin: 0 auto;
       font-size: 0.95rem;
       line-height: 1.6;
+      padding: 0 15px;
     }
 
     .about h3 {
@@ -131,6 +134,7 @@
       margin-top: 30px;
       border-top: 1px solid #333;
       padding-top: 15px;
+      font-size: 1.1rem;
     }
 
     .mini-buttons {
@@ -171,6 +175,7 @@
 
     .socials {
       margin-top: 30px;
+      text-align: center;
     }
 
     .socials a {
@@ -181,36 +186,59 @@
 
     footer {
       margin-top: 50px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #888;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .header-box h1 {
+        font-size: 1.4rem;
+      }
+
+      .cta, .mini-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .cta-container, .mini-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .color-palette-shape {
+        width: 180px;
+        height: 180px;
+      }
+
+      .about {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <div class="header-box" data-aos="fade-up">
     <h1>A professional Graphic Designer with years of experience.</h1>
   </div>
   <div class="tagline" data-aos="fade-up" data-aos-delay="100">Skillful. Light. Influence</div>
 
-  <!-- Profile -->
   <div class="profile-wrapper" data-aos="fade-up" data-aos-delay="200">
     <div class="color-palette-shape">
       <img class="profile-img" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/Photoroom-20250418_091406.png" alt="Victor Ogbeide Profile Picture" />
     </div>
   </div>
 
-  <!-- CTA Buttons -->
   <div class="cta-container" data-aos="fade-up" data-aos-delay="300">
     <a href="https://wa.me/message/7U4T2N47JMNOL1" class="cta hire">Hire Me</a>
     <a href="https://pin.it/iiK3onxdD" class="cta portfolio">My Portfolio</a>
   </div>
 
-  <!-- About Section -->
   <div class="about" data-aos="fade-up" data-aos-delay="400">
     <h3>About Me</h3>
-    <p>My name is <span class="highlight">Victor Ogbeide</span>, and I'm a passionate graphic designer dedicated to bringing visual ideas to life.</p>
+    <p>My name is <strong>Victor Ogbeide</strong>, and I'm a passionate graphic designer dedicated to bringing visual ideas to life.</p>
 
     <h3>Experience</h3>
     <p>I specialize in creating high-impact designs that connect deeply with your brand's message and audience. I’ve worked with local and international clients across various industries.</p>
@@ -221,7 +249,6 @@
     <h3>My Approach</h3>
     <p>Every detail counts, and I bring energy and creativity into every pixel.</p>
 
-    <!-- Courses and Mentorship Buttons -->
     <h3>Courses & Mentorship</h3>
     <div class="mini-buttons" data-aos="fade-up" data-aos-delay="500">
       <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-photoshop">Get My Photoshop Design Course</a>
@@ -229,7 +256,6 @@
       <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-mentorship">Get My Mentorship Plan</a>
     </div>
 
-    <!-- Social Media Links -->
     <div class="socials" data-aos="fade-up" data-aos-delay="600">
       <h3>Connect with Me</h3>
       <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL">Facebook</a>
@@ -241,7 +267,6 @@
     &copy; 2025 Victor Ogbeide. All rights reserved.
   </footer>
 
-  <!-- AOS JS CDN -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
