@@ -18,72 +18,67 @@
       font-family: 'Poppins', sans-serif;
       background-color: #0f0f0f;
       color: #fff;
-      padding: 50px 20px;
+      padding: 30px 20px;
     }
 
-    h1, h3, p {
-      margin-bottom: 10px;
-    }
-
-    .header-box {
-      display: inline-block;
+    .hero {
       background-color: #FFD700;
       color: #000;
-      padding: 15px 25px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      max-width: 90%;
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .tagline {
-      font-size: 0.85rem;
-      color: #FFD700;
-      margin-bottom: 20px;
-    }
-
-    .profile-wrapper {
+      border-radius: 20px;
+      padding: 30px 20px;
       display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
     }
 
-    .color-palette-shape {
-      width: 230px;
-      height: 230px;
-      background: #FFD700;
-      border-radius: 60% 40% 40% 60% / 40% 60% 60% 40%;
-      padding: 5px;
+    .hero-text {
+      max-width: 60%;
+      min-width: 260px;
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .hero-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 20px;
       overflow: hidden;
-      position: relative;
-      z-index: 1;
+      margin-top: 20px;
     }
 
-    .profile-img {
+    .hero-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: inherit;
     }
 
-    .cta-container {
+    .cta-row {
       display: flex;
+      justify-content: space-between;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin: 20px 0;
+      gap: 20px;
+      margin-bottom: 20px;
     }
 
     .cta {
-      text-decoration: none;
-      padding: 12px 25px;
-      border-radius: 8px;
+      flex: 1;
+      text-align: center;
+      padding: 15px;
+      border-radius: 10px;
       font-weight: 600;
+      text-decoration: none;
       background: linear-gradient(135deg, #ccc, #eee);
       color: #000;
       position: relative;
@@ -121,35 +116,19 @@
       100% { left: 125%; }
     }
 
-    .about {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      padding: 0 15px;
-    }
-
-    .about h3 {
-      color: #ffff99;
-      margin-top: 30px;
-      border-top: 1px solid #333;
-      padding-top: 15px;
-      font-size: 1.1rem;
-    }
-
-    .mini-buttons {
+    .extra-ctas {
       display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 25px;
       flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 25px;
     }
 
     .mini-btn {
+      padding: 10px 18px;
+      font-size: 0.85rem;
       text-decoration: none;
-      padding: 8px 16px;
-      font-size: 0.8rem;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: 500;
       transition: transform 0.3s ease;
     }
@@ -158,112 +137,105 @@
       transform: scale(1.05);
     }
 
-    .btn-photoshop {
-      background-color: #31A8FF;
-      color: #fff;
-    }
+    .btn-photoshop { background-color: #31A8FF; color: #fff; }
+    .btn-smartphone { background: linear-gradient(to right, red, yellow); color: #000; }
+    .btn-mentorship { background: linear-gradient(to right, #ccc, #eee); color: #000; }
+    .btn-free-course { background-color: crimson; color: white; font-weight: bold; }
 
-    .btn-smartphone {
-      background: linear-gradient(to right, red, yellow);
-      color: #000;
-    }
-
-    .btn-mentorship {
-      background: linear-gradient(to right, #ccc, #eee);
-      color: #000;
-    }
-
-    .socials {
-      margin-top: 30px;
+    .about, .socials, footer {
+      max-width: 800px;
+      margin: 0 auto;
       text-align: center;
+      padding: 20px;
+    }
+
+    .about h3 {
+      margin-top: 30px;
+      color: #ffff99;
+      font-size: 1.2rem;
+    }
+
+    .about p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-top: 10px;
     }
 
     .socials a {
       color: #FFD700;
-      margin: 0 10px;
+      margin: 0 12px;
       text-decoration: none;
     }
 
     footer {
-      margin-top: 50px;
       font-size: 0.85rem;
       color: #888;
-      text-align: center;
+      margin-top: 40px;
     }
 
-    @media (max-width: 600px) {
-      .header-box h1 {
-        font-size: 1.4rem;
-      }
-
-      .cta, .mini-btn {
-        width: 100%;
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        align-items: center;
         text-align: center;
-        padding: 10px;
       }
 
-      .cta-container, .mini-buttons {
+      .hero-text {
+        max-width: 100%;
+      }
+
+      .cta-row {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .cta {
+        width: 100%;
+      }
+
+      .extra-ctas {
         flex-direction: column;
         gap: 10px;
-      }
-
-      .color-palette-shape {
-        width: 180px;
-        height: 180px;
-      }
-
-      .about {
-        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="header-box" data-aos="fade-up">
-    <h1>A professional Graphic Designer with years of experience.</h1>
-  </div>
-  <div class="tagline" data-aos="fade-up" data-aos-delay="100">Skillful. Light. Influence</div>
-
-  <div class="profile-wrapper" data-aos="fade-up" data-aos-delay="200">
-    <div class="color-palette-shape">
-      <img class="profile-img" src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/Photoroom-20250418_091406.png" alt="Victor Ogbeide Profile Picture" />
+  <section class="hero" data-aos="fade-up">
+    <div class="hero-text">
+      <h1>A Professional Graphic Designer You Can Trust</h1>
+      <p>Designing excellence with intention, clarity & impact.</p>
     </div>
-  </div>
+    <div class="hero-img">
+      <img src="https://raw.githubusercontent.com/patvictor/thevictorogbeide/refs/heads/Images/Photoroom-20250418_091406.png" alt="Victor Ogbeide Profile Picture" />
+    </div>
+  </section>
 
-  <div class="cta-container" data-aos="fade-up" data-aos-delay="300">
+  <div class="cta-row" data-aos="fade-up" data-aos-delay="200">
     <a href="https://wa.me/message/7U4T2N47JMNOL1" class="cta hire">Hire Me</a>
     <a href="https://pin.it/iiK3onxdD" class="cta portfolio">My Portfolio</a>
   </div>
 
-  <div class="about" data-aos="fade-up" data-aos-delay="400">
-    <h3>About Me</h3>
-    <p>My name is <strong>Victor Ogbeide</strong>, and I'm a passionate graphic designer dedicated to bringing visual ideas to life.</p>
-
-    <h3>Experience</h3>
-    <p>I specialize in creating high-impact designs that connect deeply with your brand's message and audience. I’ve worked with local and international clients across various industries.</p>
-
-    <h3>Philosophy</h3>
-    <p>My design philosophy centers around clarity, intentionality, and storytelling—whether it’s a brand identity, social media visuals, or event branding.</p>
-
-    <h3>My Approach</h3>
-    <p>Every detail counts, and I bring energy and creativity into every pixel.</p>
-
-    <h3>Courses & Mentorship</h3>
-    <div class="mini-buttons" data-aos="fade-up" data-aos-delay="500">
-      <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-photoshop">Get My Photoshop Design Course</a>
-      <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-smartphone">Get My Smartphone Design Course</a>
-      <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-mentorship">Get My Mentorship Plan</a>
-    </div>
-
-    <div class="socials" data-aos="fade-up" data-aos-delay="600">
-      <h3>Connect with Me</h3>
-      <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL">Facebook</a>
-      <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09">X (Twitter)</a>
-    </div>
+  <div class="extra-ctas" data-aos="fade-up" data-aos-delay="300">
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-photoshop">Photoshop Design Course</a>
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-smartphone">Smartphone Design Course</a>
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-mentorship">Mentorship Plan</a>
+    <a href="https://wa.me/message/7U4T2N47JMNOL1" class="mini-btn btn-free-course">Free Photoshop Course (Ends May 9)</a>
   </div>
 
-  <footer data-aos="fade-up" data-aos-delay="700">
+  <section class="about" data-aos="fade-up" data-aos-delay="400">
+    <h3>About Victor Ogbeide</h3>
+    <p>I’m a creative graphic designer passionate about helping individuals and brands communicate their stories visually. Whether it's branding, flyers, motion graphics, or product visuals, I deliver designs that resonate and elevate.</p>
+  </section>
+
+  <div class="socials" data-aos="fade-up" data-aos-delay="500">
+    <h3>Connect with Me</h3>
+    <a href="https://www.facebook.com/Victordesigns.stu?mibextid=ZbWKwL">Facebook</a>
+    <a href="https://x.com/dvictorogbeide?t=a2h4Yq48_okO2_Et9lrFgA&s=09">X (Twitter)</a>
+  </div>
+
+  <footer data-aos="fade-up" data-aos-delay="600">
     &copy; 2025 Victor Ogbeide. All rights reserved.
   </footer>
 
